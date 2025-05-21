@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彼岸花 - CSS动画</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000;
+            overflow: hidden;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .flower {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            transform-style: preserve-3d;
+            animation: rotateFlower 20s linear infinite;
+        }
+
+        .petal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 160px;
+            background: linear-gradient(to top, transparent, #ff0000);
+            transform-origin: bottom center;
+            border-radius: 50% 50% 0 0;
+            animation: sway 5s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+        }
+
+        /* 创建7个花瓣，均匀分布 */
+        .petal:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg); animation-delay: 0s; }
+        .petal:nth-child(2) { transform: translate(-50%, -50%) rotate(51.4deg); animation-delay: 0.7s; }
+        .petal:nth-child(3) { transform: translate(-50%, -50%) rotate(102.8deg); animation-delay: 1.4s; }
+        .petal:nth-child(4) { transform: translate(-50%, -50%) rotate(154.2deg); animation-delay: 2.1s; }
+        .petal:nth-child(5) { transform: translate(-50%, -50%) rotate(205.6deg); animation-delay: 2.8s; }
+        .petal:nth-child(6) { transform: translate(-50%, -50%) rotate(257deg); animation-delay: 3.5s; }
+        .petal:nth-child(7) { transform: translate(-50%, -50%) rotate(308.4deg); animation-delay: 4.2s; }
+
+        /* 内层花瓣 */
+        .inner-petal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 15px;
+            height: 120px;
+            background: linear-gradient(to top, transparent, #ff3333);
+            transform-origin: bottom center;
+            border-radius: 50% 50% 0 0;
+            animation: sway 5s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6));
+        }
+
+        /* 内层7个花瓣，错开分布 */
+        .inner-petal:nth-child(1) { transform: translate(-50%, -50%) rotate(25.7deg); animation-delay: 0.3s; }
+        .inner-petal:nth-child(2) { transform: translate(-50%, -50%) rotate(77.1deg); animation-delay: 1.0s; }
+        .inner-petal:nth-child(3) { transform: translate(-50%, -50%) rotate(128.5deg); animation-delay: 1.7s; }
+        .inner-petal:nth-child(4) { transform: translate(-50%, -50%) rotate(179.9deg); animation-delay: 2.4s; }
+        .inner-petal:nth-child(5) { transform: translate(-50%, -50%) rotate(231.3deg); animation-delay: 3.1s; }
+        .inner-petal:nth-child(6) { transform: translate(-50%, -50%) rotate(282.7deg); animation-delay: 3.8s; }
+        .inner-petal:nth-child(7) { transform: translate(-50%, -50%) rotate(334.1deg); animation-delay: 4.5s; }
+
+        /* 花茎 */
+        .stem {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 300px;
+            background: linear-gradient(to bottom, #006600, #00aa00);
+            transform: translate(-50%, 0);
+            z-index: -1;
+            border-radius: 5px;
+            animation: stemSway 10s ease-in-out infinite;
+        }
+
+        /* 花蕊 */
+        .stamen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(#ffcc00, #ff9900);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+            z-index: 2;
+        }
+
+        /* 花丝 */
+        .stamen::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            border: 2px dotted #ffcc00;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulseStamen 3s ease-in-out infinite;
+        }
+
+        /* 叶子 */
+        .leaf {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            background: linear-gradient(to right, #006600, #00aa00);
+            border-radius: 50% 50% 50% 0;
+            transform-origin: left center;
+            z-index: -1;
+        }
+
+        .leaf:nth-child(1) {
+            top: 60%;
+            left: 48%;
+            transform: rotate(30deg);
+        }
+
+        .leaf:nth-child(2) {
+            top: 70%;
+            left: 48%;
+            transform: rotate(-30deg);
+        }
+
+        /* 标题 */
+        .title {
+            margin-top: 50px;
+            color: #ff3333;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            animation: glowTitle 2s ease-in-out infinite alternate;
+        }
+
+        .subtitle {
+            color: #fff;
+            font-size: 1.2em;
+            margin-top: 10px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        /* 背景星光 */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 4s infinite;
+        }
+
+        /* 创建50个星星 */
+        @keyframes createStars {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* 动画定义 */
+        @keyframes rotateFlower {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        @keyframes sway {
+            0%, 100% { transform-origin: bottom center; transform: translate(-50%, -50%) rotate(var(--rotate)) scaleX(1); }
+            50% { transform-origin: bottom center; transform: translate(-50%, -50%) rotate(calc(var(--rotate) + 5deg)) scaleX(1.1); }
+        }
+
+        @keyframes stemSway {
+            0%, 100% { transform: translate(-50%, 0) rotate(0deg); }
+            50% { transform: translate(-50%, 0) rotate(2deg); }
+        }
+
+        @keyframes pulseStamen {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+        }
+
+        @keyframes glowTitle {
+            0% { text-shadow: 0 0 5px rgba(255, 0, 0, 0.8); }
+            100% { text-shadow: 0 0 20px rgba(255, 0, 0, 1); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flower">
+            <!-- 主花瓣 -->
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <!-- 内层花瓣 -->
+            <div class="inner-petal"></div>
+            <div class="inner-petal"></div>
+            <div class="inner-petal"></div>
+            <div class="inner-petal"></div>
+            <div class="inner-petal"></div>
+            <div class="inner-petal"></div>
+            <div class="inner-petal"></div>
+
+            <!-- 花蕊 -->
+            <div class="stamen"></div>
+        </div>
+
+        <!-- 花茎 -->
+        <div class="stem"></div>
+
+        <!-- 叶子 -->
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+
+        <h1 class="title">彼岸花</h1>
+        <p class="subtitle">曼珠沙华，花开彼岸，花落人间</p>
+    </div>
+
+    <!-- 背景星光 -->
+    <div class="stars"></div>
+
+    <script>
+        // 创建星星
+        const starsContainer = document.querySelector('.stars');
+        for (let i = 0; i < 80; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            // 随机位置
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            
+            // 随机大小
+            const size = Math.random() * 3;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            
+            // 随机动画延迟
+            star.style.animationDelay = `${Math.random() * 4}s`;
+            
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html> 

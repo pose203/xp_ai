@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彼岸花 - 曼珠沙华</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Microsoft YaHei', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .banner video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .banner .content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .banner .content h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 4em;
+            text-transform: uppercase;
+            color: #ff3333;
+            text-shadow: 0 0 10px #ff0000;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .banner .content p {
+            font-size: 1.5em;
+            color: #fff;
+            margin-top: 20px;
+            text-shadow: 0 0 5px #ff0000;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+            }
+            to {
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+            }
+        }
+
+        .info-section {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            z-index: 2;
+        }
+
+        .info-section a {
+            color: #ff3333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .info-section a:hover {
+            color: #ff8888;
+            text-shadow: 0 0 5px #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <video autoplay loop muted>
+            <source src="66666.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1>彼岸花</h1>
+            <p>曼珠沙华，花开彼岸，花落人间</p>
+        </div>
+        <div class="info-section">
+            <p>彼岸花又名曼珠沙华，在日本传说中代表着悲伤的思念和永不相见的约定</p>
+        </div>
+    </div>
+</body>
+
+</html>

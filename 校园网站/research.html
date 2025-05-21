@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科研成果 - 未来科技大学</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e40af'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '2px',
+                        DEFAULT: '4px',
+                        'md': '8px',
+                        'lg': '12px',
+                        'xl': '16px',
+                        '2xl': '20px',
+                        '3xl': '24px',
+                        'full': '9999px',
+                        'button': '4px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            min-height: 1024px;
+        }
+        .page-header {
+            background-image: url('https://ai-public.mastergo.com/ai/img_res/def0256095bf3bd39ba6c5c13dcd80c9.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .research-card:hover {
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+        .publication-card:hover {
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+        .achievement-item {
+            position: relative;
+        }
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background-color: #e5e7eb;
+        }
+        .achievement-item:first-child::before {
+            top: 24px;
+        }
+        .achievement-item:last-child::before {
+            height: 24px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <div class="text-3xl font-['Pacifico'] text-primary">logo</div>
+                    <span class="ml-4 text-xl font-bold">未来科技大学</span>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="1.html" class="text-gray-700 hover:text-primary">首页</a>
+                    <a href="departments.html" class="text-gray-700 hover:text-primary">院系设置</a>
+                    <a href="admissions.html" class="text-gray-700 hover:text-primary">招生信息</a>
+                    <a href="research.html" class="text-primary font-bold">科研成果</a>
+                    <a href="campus_life.html" class="text-gray-700 hover:text-primary">校园生活</a>
+                </nav>
+
+                <div class="flex items-center space-x-6">
+                    <div class="relative">
+                        <input type="text" placeholder="搜索" class="pl-10 pr-4 py-2 border border-gray-200 rounded-full text-sm focus:outline-none focus:border-primary">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    
+                    <button class="!rounded-button px-4 py-2 bg-primary text-white hover:bg-secondary whitespace-nowrap">
+                        登录门户
+                    </button>
+                    
+                    <select class="border-none bg-transparent text-gray-700 focus:outline-none">
+                        <option>中文</option>
+                        <option>English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <section class="page-header h-[400px] flex items-center">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="max-w-2xl bg-white/90 p-12 rounded-lg backdrop-blur-sm">
+                    <h1 class="text-4xl font-bold mb-6">科研成果</h1>
+                    <p class="text-lg text-gray-700">未来科技大学致力于开展基础研究和应用研究，推动科技创新和成果转化，为国家创新体系建设和经济社会发展做出重要贡献。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-12 text-center">重点研究方向</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="research-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/11ae5e66ccf87ab124020df71db1b5a6.jpg" class="w-full h-56 object-cover" alt="人工智能研究">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-4">人工智能与机器学习</h3>
+                            <p class="text-gray-600 mb-6">专注于深度学习、强化学习、自然语言处理和计算机视觉等领域的前沿研究，开发具有自主学习能力的智能系统。</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">深度学习</span>
+                                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">自然语言处理</span>
+                                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">计算机视觉</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-secondary flex items-center">
+                                查看研究详情 <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="research-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/def0256095bf3bd39ba6c5c13dcd80c9.jpg" class="w-full h-56 object-cover" alt="量子计算研究">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-4">量子信息与计算</h3>
+                            <p class="text-gray-600 mb-6">探索量子计算理论与实现，研发量子比特、量子逻辑门和量子算法，构建新一代量子计算平台。</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">量子计算</span>
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">量子通信</span>
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">量子密码学</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-secondary flex items-center">
+                                查看研究详情 <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="research-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/9aae79303b936d9832e602569df085b6.jpg" class="w-full h-56 object-cover" alt="生命科学研究">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-4">生物医学工程</h3>
+                            <p class="text-gray-600 mb-6">结合生物学、医学与工程技术，开发新型医疗器械、生物材料和智能诊疗系统，推动医疗健康领域的创新发展。</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-green-50 text-green-600 rounded-full text-sm">生物材料</span>
+                                <span class="px-3 py-1 bg-green-50 text-green-600 rounded-full text-sm">智能诊疗</span>
+                                <span class="px-3 py-1 bg-green-50 text-green-600 rounded-full text-sm">医学影像</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-secondary flex items-center">
+                                查看研究详情 <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-12 text-center">重大科研成果</h2>
+                
+                <div class="space-y-8">
+                    <div class="achievement-item pl-12">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                            <i class="fas fa-flask text-white"></i>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                                <h3 class="text-2xl font-bold">国内首台超导量子计算原型机</h3>
+                                <span class="mt-2 md:mt-0 px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-sm whitespace-nowrap">2023年</span>
+                            </div>
+                            <p class="text-gray-600 mb-6">我校物理学院与国家量子信息科学研究院合作，成功研制出具有24个量子比特的超导量子计算原型机，在量子优越性和实用化量子计算领域实现重要突破。该成果发表于《Nature》，并入选2023年度中国十大科技进展。</p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm flex items-center">
+                                    <i class="fas fa-users mr-2"></i> 首席科学家：王建国 教授
+                                </span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm flex items-center">
+                                    <i class="fas fa-award mr-2"></i> 国家科技进步一等奖
+                                </span>
+                                <a href="#" class="px-3 py-1 bg-primary/10 text-primary rounded text-sm flex items-center hover:bg-primary/20">
+                                    <i class="fas fa-file-alt mr-2"></i> 查看论文
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-item pl-12">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                            <i class="fas fa-microchip text-white"></i>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                                <h3 class="text-2xl font-bold">脑机接口关键技术突破</h3>
+                                <span class="mt-2 md:mt-0 px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-sm whitespace-nowrap">2022年</span>
+                            </div>
+                            <p class="text-gray-600 mb-6">我校脑科学研究中心联合医学院团队，在非侵入式脑机接口技术方面取得重大突破，开发出具有毫秒级响应时间和99.2%准确率的脑电信号解码系统，为神经康复和人机交互提供了全新方案。</p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm flex items-center">
+                                    <i class="fas fa-users mr-2"></i> 首席科学家：李明轩 教授
+                                </span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm flex items-center">
+                                    <i class="fas fa-award mr-2"></i> 教育部科技进步奖
+                                </span>
+                                <a href="#" class="px-3 py-1 bg-primary/10 text-primary rounded text-sm flex items-center hover:bg-primary/20">
+                                    <i class="fas fa-file-alt mr-2"></i> 查看论文
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-item pl-12">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                            <i class="fas fa-dna text-white"></i>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                                <h3 class="text-2xl font-bold">新型抗肿瘤药物研发</h3>
+                                <span class="mt-2 md:mt-0 px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-sm whitespace-nowrap">2021年</span>
+                            </div>
+                            <p class="text-gray-600 mb-6">生命科学学院研究团队成功开发出一种针对实体瘤的靶向递送系统，在动物实验中显示出超过90%的肿瘤抑制率，且副作用显著降低。相关技术已申请国际专利，并正在进行临床前研究。</p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm flex items-center">
+                                    <i class="fas fa-users mr-2"></i> 首席科学家：林雪梅 教授
+                                </span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm flex items-center">
+                                    <i class="fas fa-award mr-2"></i> 12项国际专利
+                                </span>
+                                <a href="#" class="px-3 py-1 bg-primary/10 text-primary rounded text-sm flex items-center hover:bg-primary/20">
+                                    <i class="fas fa-file-alt mr-2"></i> 查看论文
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-12 text-center">研究中心与实验室</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                        <div class="relative">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/9aae79303b936d9832e602569df085b6.jpg" class="w-full h-64 object-cover" alt="国家重点实验室">
+                            <div class="absolute top-4 right-4 px-3 py-1 bg-red-500 text-white rounded-full text-sm">
+                                国家级
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-4">量子信息科学国家重点实验室</h3>
+                            <p class="text-gray-600 mb-6">创建于2016年，聚焦量子通信、量子计算和量子精密测量等领域的基础研究和应用研究，拥有国际领先的量子实验平台。</p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm">20余名院士级科学家</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm">近百篇Nature/Science论文</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-secondary flex items-center">
+                                了解更多 <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                        <div class="relative">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/11ae5e66ccf87ab124020df71db1b5a6.jpg" class="w-full h-64 object-cover" alt="人工智能研究院">
+                            <div class="absolute top-4 right-4 px-3 py-1 bg-blue-600 text-white rounded-full text-sm">
+                                校级
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-4">人工智能与机器人研究院</h3>
+                            <p class="text-gray-600 mb-6">致力于智能系统、类脑计算和机器人技术的跨学科研究，开展产学研合作，推动AI技术在医疗、制造等领域的创新应用。</p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm">50+研究团队</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm">200+企业合作伙伴</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-secondary flex items-center">
+                                了解更多 <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                        <div class="relative">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/73220418d4c8efdb4900a110c582d2bd.jpg" class="w-full h-64 object-cover" alt="能源研究中心">
+                            <div class="absolute top-4 right-4 px-3 py-1 bg-red-500 text-white rounded-full text-sm">
+                                国家级
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-4">清洁能源与氢能工程技术研究中心</h3>
+                            <p class="text-gray-600 mb-6">专注于新能源材料、储能技术和氢能源系统的研发，为国家能源转型和碳中和目标提供技术支撑。</p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm">30+国家级项目</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm">80+技术成果转化</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-secondary flex items-center">
+                                了解更多 <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                        <div class="relative">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/a1cc439e8248016ee881d00e076bddc9.jpg" class="w-full h-64 object-cover" alt="生物医药实验室">
+                            <div class="absolute top-4 right-4 px-3 py-1 bg-blue-600 text-white rounded-full text-sm">
+                                校级
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-4">生物医药创新转化中心</h3>
+                            <p class="text-gray-600 mb-6">搭建基础研究与临床应用的桥梁，促进前沿生物医药成果的产业化，打造"产学研医"一体化创新平台。</p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm">15+医药企业孵化</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm">25+药物临床试验</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-secondary flex items-center">
+                                了解更多 <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-12 text-center">学术出版与期刊</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="publication-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-8">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                                <i class="fas fa-book text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">《未来科技评论》</h3>
+                            <p class="text-gray-600 mb-4">创刊于2010年，聚焦前沿科技发展和创新战略研究，影响因子10.8，被SCI和EI收录。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">季刊</span>
+                                <a href="#" class="text-primary hover:text-secondary flex items-center">
+                                    浏览期刊 <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-8">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                                <i class="fas fa-atom text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">《量子信息学报》</h3>
+                            <p class="text-gray-600 mb-4">量子信息领域国际顶级学术期刊，由我校量子信息科学国家重点实验室主办，影响因子8.6。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">双月刊</span>
+                                <a href="#" class="text-primary hover:text-secondary flex items-center">
+                                    浏览期刊 <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-8">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                                <i class="fas fa-robot text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">《人工智能前沿》</h3>
+                            <p class="text-gray-600 mb-4">专注于AI核心技术和应用创新研究，被SSCI收录，是中国人工智能领域最具影响力的学术期刊之一。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">月刊</span>
+                                <a href="#" class="text-primary hover:text-secondary flex items-center">
+                                    浏览期刊 <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-16 text-center">
+                    <h3 class="text-2xl font-bold mb-8">学术成果统计</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="text-4xl font-bold text-primary mb-2">12,500+</div>
+                            <p class="text-gray-600">SCI论文发表</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="text-4xl font-bold text-primary mb-2">1,800+</div>
+                            <p class="text-gray-600">国际合作项目</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="text-4xl font-bold text-primary mb-2">3,200+</div>
+                            <p class="text-gray-600">专利授权</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="text-4xl font-bold text-primary mb-2">280+</div>
+                            <p class="text-gray-600">科研奖项</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-12 text-center">科研合作伙伴</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-center justify-center">
+                        <div class="text-2xl font-bold text-gray-700">合作伙伴1</div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-center justify-center">
+                        <div class="text-2xl font-bold text-gray-700">合作伙伴2</div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-center justify-center">
+                        <div class="text-2xl font-bold text-gray-700">合作伙伴3</div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-center justify-center">
+                        <div class="text-2xl font-bold text-gray-700">合作伙伴4</div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-center justify-center">
+                        <div class="text-2xl font-bold text-gray-700">合作伙伴5</div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-center justify-center">
+                        <div class="text-2xl font-bold text-gray-700">合作伙伴6</div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <a href="#" class="inline-block !rounded-button px-8 py-3 bg-primary text-white hover:bg-secondary text-lg">
+                        了解合作方式
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">关于我们</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary">学校简介</a></li>
+                        <li><a href="#" class="hover:text-primary">历史沿革</a></li>
+                        <li><a href="#" class="hover:text-primary">现任领导</a></li>
+                        <li><a href="#" class="hover:text-primary">组织机构</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">教育教学</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary">本科教育</a></li>
+                        <li><a href="#" class="hover:text-primary">研究生教育</a></li>
+                        <li><a href="#" class="hover:text-primary">国际教育</a></li>
+                        <li><a href="#" class="hover:text-primary">继续教育</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">科学研究</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary">研究机构</a></li>
+                        <li><a href="#" class="hover:text-primary">科研项目</a></li>
+                        <li><a href="#" class="hover:text-primary">学术期刊</a></li>
+                        <li><a href="#" class="hover:text-primary">学术会议</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">招生就业</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary">本科生招生</a></li>
+                        <li><a href="#" class="hover:text-primary">研究生招生</a></li>
+                        <li><a href="#" class="hover:text-primary">国际学生</a></li>
+                        <li><a href="#" class="hover:text-primary">就业服务</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2024 未来科技大学 版权所有</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

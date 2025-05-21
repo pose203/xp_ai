@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞机大战</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .video-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+            padding: 8px 15px;
+            background: linear-gradient(to bottom, #b30000, #800000);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+        
+        .video-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <a href="video-player.html" class="video-link">彼岸花视频</a>
+    <div class="game-container">
+        <div id="game-stats">
+            <div id="score">分数: <span id="score-value">0</span></div>
+            <div id="lives">生命: <span id="lives-value">3</span></div>
+        </div>
+        <div id="start-screen" class="screen">
+            <h1>飞机大战</h1>
+            <button id="start-button">开始游戏</button>
+            <p>使用方向键移动，空格键发射子弹</p>
+        </div>
+        <div id="game-over-screen" class="screen hidden">
+            <h1>游戏结束</h1>
+            <p>你的分数: <span id="final-score">0</span></p>
+            <button id="restart-button">再玩一次</button>
+        </div>
+        <canvas id="game-canvas"></canvas>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 

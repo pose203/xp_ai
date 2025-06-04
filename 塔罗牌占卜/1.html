@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塔罗牌占卜</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6B46C1',
+                        secondary: '#805AD5'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '2px',
+                        DEFAULT: '4px',
+                        'md': '8px',
+                        'lg': '12px',
+                        'xl': '16px',
+                        '2xl': '20px',
+                        '3xl': '24px',
+                        'full': '9999px',
+                        'button': '4px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            min-height: 1024px;
+            background: linear-gradient(135deg, #f6f5ff 0%, #ffffff 100%);
+        }
+        .card {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .card-front {
+            transform: rotateY(180deg);
+        }
+        .card-back {
+            background-image: url('https://ai-public.mastergo.com/ai/img_res/b457d8a10f33effbab2e04b689d01b4f.jpg');
+            background-size: cover;
+        }
+        .typing-animation {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end);
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        .history-panel {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .history-panel.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <div class="max-w-[1440px] mx-auto">
+        <nav class="flex items-center justify-between px-8 py-4 bg-white/80 backdrop-blur-sm fixed top-0 w-full z-50">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-2xl font-['Pacifico'] text-primary">logo</h1>
+                <span class="text-gray-600">塔罗占卜</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button class="flex items-center space-x-2 text-gray-600 hover:text-primary !rounded-button">
+                    <i class="fas fa-volume-up w-5 h-5 flex items-center justify-center"></i>
+                    <span>音效</span>
+                </button>
+                <button class="flex items-center space-x-2 text-gray-600 hover:text-primary !rounded-button">
+                    <i class="fas fa-user w-5 h-5 flex items-center justify-center"></i>
+                    <span>个人中心</span>
+                </button>
+                <button class="flex items-center space-x-2 text-gray-600 hover:text-primary !rounded-button">
+                    <i class="fas fa-cog w-5 h-5 flex items-center justify-center"></i>
+                    <span>设置</span>
+                </button>
+            </div>
+        </nav>
+
+        <main class="pt-20 px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">今日塔罗占卜</h2>
+                <p class="text-gray-600">请在心中默想问题，选择一张感应最强的卡牌</p>
+            </div>
+
+            <div class="grid grid-cols-5 gap-6 mb-12">
+                <div class="card-container relative h-[400px] cursor-pointer group" onclick="this.querySelector('.card').classList.toggle('flipped')">
+                    <div class="card w-full h-full">
+                        <div class="card-front rounded-lg shadow-lg bg-white p-4">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/f755c8fd223c36eab4b3095c9fa04e90.jpg" class="w-full h-full object-cover rounded" alt="The Fool">
+                            <div class="mt-4 text-center">
+                                <h3 class="text-lg font-semibold">愚者正位</h3>
+                                <p class="text-sm text-gray-600">新的开始</p>
+                            </div>
+                        </div>
+                        <div class="card-back rounded-lg shadow-lg"></div>
+                    </div>
+                </div>
+                <div class="card-container relative h-[400px] cursor-pointer group" onclick="this.querySelector('.card').classList.toggle('flipped')">
+                    <div class="card w-full h-full">
+                        <div class="card-front rounded-lg shadow-lg bg-white p-4">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/e6c355756570e71889e2fb6293778008.jpg" class="w-full h-full object-cover rounded" alt="The Magician">
+                            <div class="mt-4 text-center">
+                                <h3 class="text-lg font-semibold">魔术师正位</h3>
+                                <p class="text-sm text-gray-600">创造力</p>
+                            </div>
+                        </div>
+                        <div class="card-back rounded-lg shadow-lg"></div>
+                    </div>
+                </div>
+                <div class="card-container relative h-[400px] cursor-pointer group" onclick="this.querySelector('.card').classList.toggle('flipped')">
+                    <div class="card w-full h-full">
+                        <div class="card-front rounded-lg shadow-lg bg-white p-4">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/88d6c7581e4c58ea0f6cabdb6b11f4fb.jpg" class="w-full h-full object-cover rounded" alt="The High Priestess">
+                            <div class="mt-4 text-center">
+                                <h3 class="text-lg font-semibold">女祭司正位</h3>
+                                <p class="text-sm text-gray-600">直觉智慧</p>
+                            </div>
+                        </div>
+                        <div class="card-back rounded-lg shadow-lg"></div>
+                    </div>
+                </div>
+                <div class="card-container relative h-[400px] cursor-pointer group" onclick="this.querySelector('.card').classList.toggle('flipped')">
+                    <div class="card w-full h-full">
+                        <div class="card-front rounded-lg shadow-lg bg-white p-4">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/7c46f40261617112636e514cc47ee089.jpg" class="w-full h-full object-cover rounded" alt="The Empress">
+                            <div class="mt-4 text-center">
+                                <h3 class="text-lg font-semibold">女皇正位</h3>
+                                <p class="text-sm text-gray-600">丰盛富足</p>
+                            </div>
+                        </div>
+                        <div class="card-back rounded-lg shadow-lg"></div>
+                    </div>
+                </div>
+                <div class="card-container relative h-[400px] cursor-pointer group" onclick="this.querySelector('.card').classList.toggle('flipped')">
+                    <div class="card w-full h-full">
+                        <div class="card-front rounded-lg shadow-lg bg-white p-4">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/43a2428c49cf18517b9e666b81acf5dc.jpg" class="w-full h-full object-cover rounded" alt="The Emperor">
+                            <div class="mt-4 text-center">
+                                <h3 class="text-lg font-semibold">皇帝正位</h3>
+                                <p class="text-sm text-gray-600">权力掌控</p>
+                            </div>
+                        </div>
+                        <div class="card-back rounded-lg shadow-lg"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="resultSection" class="hidden bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-start space-x-8">
+                    <div class="w-1/3">
+                        <img id="selectedCardImage" src="" class="w-full rounded-lg shadow-lg" alt="Selected Card">
+                    </div>
+                    <div class="w-2/3">
+                        <h3 class="text-2xl font-bold mb-4">塔罗解读</h3>
+                        <div id="interpretationContent" class="space-y-4">
+                            <!-- Dynamic content will be inserted here by JavaScript -->
+                        </div>
+                        <div class="mt-8 flex items-center space-x-4">
+                            <button class="bg-primary text-white px-6 py-2 rounded-button flex items-center space-x-2">
+                                <i class="fas fa-share-alt w-5 h-5 flex items-center justify-center"></i>
+                                <span>分享结果</span>
+                            </button>
+                            <button class="border border-primary text-primary px-6 py-2 rounded-button flex items-center space-x-2">
+                                <i class="fas fa-save w-5 h-5 flex items-center justify-center"></i>
+                                <span>保存记录</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+                <h3 class="text-2xl font-bold mb-6">历史记录</h3>
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/50da82aeb3469a2a5068ce710330700c.jpg" class="w-20 rounded shadow" alt="History Card">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-semibold">月亮正位</h4>
+                                <span class="text-sm text-gray-500">2024-02-20</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-1">直觉与潜意识的觉醒，内心深处的恐惧与不安需要被关注。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/87c3b699ce1f33e298f03c5fa02b0afa.jpg" class="w-20 rounded shadow" alt="History Card">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-semibold">星星正位</h4>
+                                <span class="text-sm text-gray-500">2024-02-19</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-1">希望与信念的指引，心想事成的美好预兆。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/ba2d16e247ff1fc0d4d0f0bb6629b864.jpg" class="w-20 rounded shadow" alt="History Card">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-semibold">命运之轮正位</h4>
+                                <span class="text-sm text-gray-500">2024-02-18</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-1">机遇与转机即将到来，保持积极乐观的心态。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-50 py-8 px-8">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="text-gray-600">
+                    <p>© 2024 塔罗占卜. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-primary">关于我们</a>
+                    <a href="#" class="text-gray-600 hover:text-primary">使用条款</a>
+                    <a href="#" class="text-gray-600 hover:text-primary">隐私政策</a>
+                    <a href="#" class="text-gray-600 hover:text-primary">联系我们</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -25,6 +25,12 @@
 // chat 方式 AIGC 生成/完成 返回的内容
 // 由openai 制定的
 // 请求行
+// 命名
+// webLLM
+// llm api 服务器
+// api.deepseek.com 二级域名 LLM服务以API方式提供
+// https 加密的httpp 更安全
+// chat 聊天的方式
 const  endpoint = "https://api.deepseek.com/chat/completions"
 // 请求头
 const headers = {
@@ -37,6 +43,10 @@ const headers = {
 const payload = {
   model: 'deepseek-chat',
   messages: [
+    // chat 三种方式
+    // 1. 系统角色 只会出现一次 设置系统的角色 开始会话之前
+    // 2. 用户角色
+    // 3. 助手角色
     { role: 'system', content: 'You are a helpful assistant.'},
     { role:'user', content: '你好 Deepseek'}
   ]
@@ -45,8 +55,13 @@ const payload = {
 fetch(endpoint, {
   method: 'POST',
   headers: headers,
+  // http 请求传输只能是字符串 ，二进制
   body: JSON.stringify(payload)
-}).then(res => res.json())
+  //请求+LLM 生成需要花时间
+  // http 是基于请求响应的简单协议
+  // 返回的也是二进制流或文本
+  }).then(res => res.json())
+  // 解析返回的json 数据 也要花时间
 .then(data => {
   console.log(data);
   document.querySelector('#reply').innerHTML 

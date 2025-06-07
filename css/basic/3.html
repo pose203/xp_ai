@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>伪类选择器</title>
     <style>
+        /* 行为伪类 */
         button.active {
             background-color: red;
             color: white;
@@ -16,18 +17,21 @@
             background-color: blue;
             color: white;
         }
+        /* 状态伪类 */
         input:focus{
             border: 2px solid rgb(122, 2, 2);
         }
         input:checked + label{
             font-weight: bold;
         }
+        /* 结构伪类 */
         li:nth-child(odd){
             background-color: red;
         }
         li:nth-child(even){
             background-color: blue;
         }
+        /* 条件伪类 */
         li:not(:last-child){
             margin-bottom: 10px;
         }

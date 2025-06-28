@@ -1,0 +1,4 @@
+- Intersection Observer
+  - observer 观察 异步的,不是同步的 浏览器的后台
+  - Intersection rect 和可视区域交叉
+  - 不需要onscroll 不需要节流

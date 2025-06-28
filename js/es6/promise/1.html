@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 异步任务
+        setTimeout(() => {
+            console.log('222');
+        }, 10);
+        // 同步任务
+        // 进程 cpu 分配 资源的最小单元
+        // 线程 执行代码的最小单元
+        // 应用程序那么多，cpu 怎么干的过来 轮询
+        // 漫画 和动画片 一秒钟20帧 以上
+        // 
+        var a = 1;
+        console.log('1111');
+        for (let i = 0; i < 100; i++) {
+            console.log('4444');
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神秘塔罗 - AI塔罗牌解读师</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Mystical Particles Background -->
+    <div class="mystical-particles"></div>
+    
+    <!-- Floating Runes -->
+    <div class="floating-runes">
+        <div class="rune">ᚠ</div>
+        <div class="rune">ᚢ</div>
+        <div class="rune">ᚦ</div>
+        <div class="rune">ᚨ</div>
+        <div class="rune">ᚱ</div>
+        <div class="rune">ᚲ</div>
+    </div>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_12b0c7443c.mp3" type="audio/mpeg">
+        <source src="https://www.soundjay.com/misc/sounds/magic-chime-02.wav" type="audio/wav">
+        <!-- Fallback: 使用增强的Web Audio API生成神秘音调 -->
+    </audio>
+    
+    <!-- Music Control -->
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn" title="切换音乐">
+            <i class="fas fa-music"></i>
+        </button>
+        <input type="range" id="volumeControl" class="volume-slider" min="0" max="100" value="30" title="音量控制">
+    </div>
+    <div class="stars"></div>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="mystical-border"></div>
+            <div class="logo">
+                <div class="logo-container">
+                    <div class="celestial-ring">
+                        <i class="fas fa-moon moon-icon"></i>
+                        <div class="orbiting-stars">
+                            <i class="fas fa-star star-1"></i>
+                            <i class="fas fa-star star-2"></i>
+                            <i class="fas fa-star star-3"></i>
+                        </div>
+                    </div>
+                    <h1 class="mystical-title">神秘塔罗</h1>
+                    <div class="title-underline"></div>
+                </div>
+            </div>
+            <p class="subtitle">AI驱动的塔罗牌解读师，为您揭示内心的智慧</p>
+            <div class="mystical-symbols">
+                <span class="symbol">☽</span>
+                <span class="symbol">✦</span>
+                <span class="symbol">☾</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section" id="welcomeSection">
+                <div class="mystical-altar">
+                    <div class="crystal-ball">
+                        <div class="crystal-inner">
+                            <div class="mystical-eye">
+                                <i class="fas fa-eye"></i>
+                                <div class="eye-glow"></div>
+                            </div>
+                            <div class="crystal-reflections"></div>
+                        </div>
+                        <div class="crystal-base">
+                            <div class="base-runes">
+                                <span>ᚦᚨᚱᚩᛏ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-cards">
+                        <div class="mini-card card-1"></div>
+                        <div class="mini-card card-2"></div>
+                        <div class="mini-card card-3"></div>
+                    </div>
+                </div>
+                <div class="welcome-content">
+                    <h2 class="mystical-welcome">欢迎来到神秘的塔罗世界</h2>
+                    <div class="divider-ornament">
+                        <span class="ornament-left">◆</span>
+                        <span class="ornament-center">✦</span>
+                        <span class="ornament-right">◆</span>
+                    </div>
+                    <p class="mystical-description">我是您的AI塔罗解读师，拥有深厚的塔罗知识和丰富的解读经验。让我为您揭示隐藏在牌面背后的智慧与指引。</p>
+                    <button class="mystical-start-btn" onclick="startReading()">
+                        <span class="btn-text">开始塔罗占卜</span>
+                        <div class="btn-glow"></div>
+                        <div class="btn-particles"></div>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Question Section -->
+            <section class="question-section" id="questionSection" style="display: none;">
+                <h2>请告诉我您的问题</h2>
+                <div class="question-types">
+                    <button class="question-type" data-type="general">一般问题</button>
+                    <button class="question-type" data-type="love">感情关系</button>
+                    <button class="question-type" data-type="career">事业发展</button>
+                    <button class="question-type" data-type="personal">个人成长</button>
+                </div>
+                <textarea id="userQuestion" placeholder="请详细描述您想要了解的问题..." rows="4"></textarea>
+                <div class="spread-selection">
+                    <h3>选择牌阵</h3>
+                    <div class="spread-options">
+                        <div class="spread-option" data-spread="three-card">
+                            <div class="spread-preview">
+                                <div class="card-placeholder"></div>
+                                <div class="card-placeholder"></div>
+                                <div class="card-placeholder"></div>
+                            </div>
+                            <h4>三张牌展开</h4>
+                            <p>过去·现在·未来</p>
+                        </div>
+                        <div class="spread-option" data-spread="celtic-cross">
+                            <div class="spread-preview celtic">
+                                <div class="card-placeholder"></div>
+                                <div class="card-placeholder"></div>
+                                <div class="card-placeholder"></div>
+                                <div class="card-placeholder"></div>
+                                <div class="card-placeholder"></div>
+                            </div>
+                            <h4>凯尔特十字</h4>
+                            <p>全面深入解读</p>
+                        </div>
+                        <div class="spread-option" data-spread="relationship">
+                            <div class="spread-preview">
+                                <div class="card-placeholder"></div>
+                                <div class="card-placeholder"></div>
+                            </div>
+                            <h4>关系解读</h4>
+                            <p>专注人际关系</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="draw-cards-btn" onclick="drawCards()">抽取塔罗牌</button>
+            </section>
+
+            <!-- Reading Section -->
+            <section class="reading-section" id="readingSection" style="display: none;">
+                <div class="shuffling" id="shuffling">
+                    <div class="deck">
+                        <div class="card-back"></div>
+                        <div class="card-back"></div>
+                        <div class="card-back"></div>
+                    </div>
+                    <p>正在洗牌...</p>
+                </div>
+                
+                <div class="cards-display" id="cardsDisplay" style="display: none;">
+                    <h2>您的塔罗牌解读</h2>
+                    <div class="drawn-cards" id="drawnCards"></div>
+                    <div class="interpretation" id="interpretation"></div>
+                    <div class="actions">
+                        <button class="action-btn" onclick="getDetailedReading()">详细解读</button>
+                        <button class="action-btn" onclick="shuffleAgain()">重新洗牌</button>
+                        <button class="action-btn" onclick="newReading()">新的解读</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>塔罗牌是自我反思的工具，而非绝对预言。请保持开放的心态，将解读作为人生指引的参考。</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

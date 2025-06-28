@@ -1,0 +1,16 @@
+{
+  "name": "tarot-agent",
+  "version": "1.0.0",
+  "description": "神秘塔罗 - AI塔罗牌解读师，一个纯HTML/CSS/JavaScript的塔罗牌解读应用",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["tarot", "divination", "mystical", "ai", "fortune-telling"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}

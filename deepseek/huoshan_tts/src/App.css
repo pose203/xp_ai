@@ -5,6 +5,87 @@
   text-align: center;
 }
 
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.input {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 10px 0;
+  resize: vertical;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.out {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.status {
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.status-ready {
+  background: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #bbdefb;
+}
+
+.status-loading {
+  background: #fff3e0;
+  color: #f57c00;
+  border: 1px solid #ffcc02;
+}
+
+.status-done {
+  background: #e8f5e8;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.status-error {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+audio {
+  width: 100%;
+  margin-top: 15px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

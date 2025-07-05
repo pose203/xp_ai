@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>base64ToUrl</title>
+</head>
+<body>
+    <img src = 
+    <img src="" alt="" id="blobImage" width="200" height="200">
+    <script>
+      // 编译码
+      // base64? google 推出的图片格式 二进制的表达
+      // 字符 base64Data编码 表达图片
+      // a  ascii => binary
+      // 将Base64编码的字符串解码为原始的二进制数据
+    const base64Data = atob('iVBORw0KGgoAAAANSUhEUgAABEIAAAJpCAYAAACpeZe2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAP+lSURBVHhedP35syxJdt+JfY67R2Tmvfe9Wrq6eiG60d1Eg4uRIEFwETkcmjgzkklm+j/1o36QjTSUaTiyoTicIbiBABcI6EYDvXdX1au33JuZEe5+9MP3eETeajDKbr17MyM8fDnr9xw/bne//rfcvWFmbJc5MAMO1gHH3ePLBF7ADFhvnuvxr+ux+NjjBxIGGK57zTEc99v3Ah5PeNzn4KNNB7cUNxqQcDPMDMcxTB+jdsycpE9xn/H43pLhySCpX2NsbmMMugyD7hidbPo7e8IMnE433dUdGq7fe1fPUgZLuicZ5h3vFV9WmnfSNGHTEU8FN7CUKMcT6XTELFGfHlmfnkjdse7P59k6uMa/D3hc8T0O/aiPxt9fuNwco8UfCbO8zcX2PjetWW/0utDrgiUjlQKpgIH3CmvDe8dSwqYDPSUsgdExN9wK7jftwvO+BmWMdY23bpe5+trNMM9Yd+gX7==')   //   console.log(base64Data)
+    // utf8 编码 特殊类型的数组 0-255 之间的整数
+    const byteArray = new Uint8Array(base64Data.length); 
+    // console.log(byteArray)
+    for(let i = 0; i<base64Data.length; i++){
+        byteArray[i] = base64Data.charCodeAt(i);
+    }
+    // 全是数字
+    // console.log(byteArray)
+    // png,doc,pdf...
+    // 实例化二进制对象 底层二进制对象
+    // html5 里面的王者对象 文件切片
+    const blob = new Blob([byteArray],{ type: 'image/png'});
+    console.log(blob);
+    // html5 URL 对象
+    const imageUrl = URL.createObjectURL(blob);
+    console.log(imageUrl);
+    document.getElementById('blobImage').src = imageUrl;
+    </script>
+</body>
+</html>

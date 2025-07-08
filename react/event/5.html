@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu{
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="toggleBth">Toggle Menu</div>
+    <div id="menu">
+        <p>Menu context</p>
+        <a herf = "" id="closeInside"></a>
+    </div>
+    <script>
+        const toggleBtn = document.getElementById('toggleBth');
+        const menu = document.getElementById('menu');
+        const closeInside = document.getElementById('closeInside');
+        toggleBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        })
+        document.addEventListener('click', function(e) {
+            menu.style.display = 'none';
+        })
+        closeInside.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            alert("Menu button clicked");
+        })
+    </script>
+    
+</body>
+</html> 

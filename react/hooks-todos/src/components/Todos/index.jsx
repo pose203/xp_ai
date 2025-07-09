@@ -35,11 +35,6 @@ const Todos = () => {
         ])
     }
     const onToggle = (id) => {
-        
-
-
-        // todos 数组找到id 为 id,isCompleted ！isConpleted
-        // 响应式? 返回一个全新的todos map
         setTodos(todos.map(todo => todo.id === id ? {...todo, isCompleted: !todo.isCompleted} : todo))
     }
     const onDelete = (id) => {
@@ -51,12 +46,10 @@ const Todos = () => {
             {/* Todos */}
             {/* 自定义事件 */}
             <TodoForm onAddTodo={addTodo}/>
-            <TodoList 
-            todos={todos}
-            onToggle={onToggle}
-            onDelete={onDelete}
-            
-            />
+            <TodoList todos={todos} 
+            onToggle={onToggle} 
+            onDelete={onDelete}/>
+
         </div>
     )
 }

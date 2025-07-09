@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JS 请求</title>
 </head>
 <body>
-    
+    <ul id ="repos"></ul>
+    <script>
+        // 阻塞
+        // window.onload  有点晚
+        document.addEventListener('DOMContentLoaded',async()=>{
+            //console.log(document.getElementById('repos'));
+            //then 的链式调用有点繁琐
+            // es6
+            // fetch('https://api.github.com/users/pose203/repos')
+            // .then(res=>res.json())
+            // .then(data=>{
+            //     //document.getElementById('repos').innerHTML = data.map(item=>`<li>${item.name}</li>`).join('');
+            // })
+            // 同代码一样
+            // es6 async await
+            // new Promise Promise{} fetch本质是返回promise实例
+            console.log('fetch(https://api.github.com/users/pose203/repos)');
+            // resolve fullfilled 完成了
+            const result = await fetch('https://api.github.com/users/pose203/repos')
+            const data = await result.json()
+            //console.log(data);
+            document.getElementById('repos').innerHTML = data.map(item=>`<li>${item.name}</li>`).join('');
+
+        })
+        //api 接口地址
+        // www.bilibili.com 网站地址 ，用户访问的
+        //https://api.github.com/users/shunwuyu url
+        // json格式 数据返回
+        // 后端 node,java，go开发
+        //资源
+        // 前端  自己做主
+        // 通过js fetch 主动拉取资源
+        // web 2.0 动态页面
+    </script>
 </body>
 </html>

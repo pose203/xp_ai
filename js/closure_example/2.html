@@ -1,0 +1,40 @@
+<script>
+
+function debounce(fn,delay){
+    // 作为对象的方法被调用
+   
+    // let id = null;
+    return function(args){
+        var that = this;// 
+        console.log(that,'////');
+        // 定时器返回ID
+        // fn 自由变量
+        // fn 对象       
+        if(fn.id){
+            clearTimeout(fn.id);
+        }
+        fn.id = setTimeout(function(){
+            //fn(args);
+            // this 丢失问题
+            fn.call(that,args);
+        },delay);
+      
+    }
+}
+
+
+let obj ={
+    count:0,
+    inc:debounce(function(val){
+        // this
+        console.log(this,'////');
+        this.count += val;
+        console.log(this.count,'////');
+
+
+        
+    },1000)
+}
+
+obj.inc(1);
+</script>

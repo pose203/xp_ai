@@ -17,5 +17,6 @@ var reverse= function(x) {
     
     return carry
  }
+ 
  console.log(reverse(123))      
  

@@ -7,6 +7,10 @@ import { useState } from 'react'
 import './App.css'
 import Home from './pages/Home/index'
 import About from './pages/About/index'
+import UserProfile from './pages/UserProfile/index'
+import Products from './pages/Products/index'
+import ProductDetails from './pages/ProductDetails/index'
+import NewProduct from './pages/NewProduct/index'
 function App() {
 
   return (
@@ -16,6 +20,12 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
+          <Route path='/user/:id' element={<UserProfile/>}/>
+          <Route path='/products' element={<Products/>}>
+          {/* 修正路径 - 将/productId改为/products/:id */}
+          <Route path='/products/:id' element={<ProductDetails/>}/>
+            <Route path='new' element={<NewProduct/>}/>
+          </Route>
         </Routes>
       </Router>
     </>

@@ -1,0 +1,71 @@
+<!-- # 单例模式
+
+- 实现一个登录弹窗
+  - 体验
+  不用跳转路由，盖在页面上
+  z-index display none|block
+  - 性能
+  90% 用户不登录
+  Modal html css js 比较多
+  推迟到第一次用的时候
+  复用 单例 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹窗</title>
+    <style>
+        #modal {
+           height: 200px;
+           width: 200px;
+           line-height: 200px;
+           position: fixed;
+           left: 50%;
+           top: 50%;
+           transform: translate(-50%, -50%);
+           border: 1px solid red;
+           text-align: center;
+           
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box" style="display: none;"></div> -->
+    <button id="open">打开登录弹窗</button>
+    <button id="close">关闭登录弹窗</button>
+    <button id="open2">打开天窗</button>
+    <script>
+        // DOM
+        // 推迟到登录的时刻
+        // 单例
+        const Modal = (function () {
+            let modal = null;
+            return function () {
+                if (!modal) {
+                    modal = document.createElement('div');
+                    modal.innerHTML = `我是一个全局唯一的Modal `
+                    modal.id = 'modal';
+                    modal.style.display = 'none';
+                    document.body.appendChild(modal);
+                }
+                return modal;
+            }
+        })();
+        document.getElementById('open').addEventListener('click', function () {
+            const modal = new Modal();
+            modal.style.display = 'block';
+        })
+        document.getElementById('open2').addEventListener('click', function () {
+            const modal = new Modal();
+            modal.style.display = 'block';
+        })
+        document.getElementById('close').addEventListener('click', function () {
+            const modal = new Modal();
+            modal.style.display = 'none';
+        })
+        // new Modal()
+    </script>
+</body>
+</html>

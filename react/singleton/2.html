@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包-单例</title>
+</head>
+<body>
+    <script>
+        // 回到函数，闭包
+        // 自由变量 唯一的实例
+        function StorageBase() {
+            // 自由变量
+            
+        }
+        StorageBase.prototype.getItem = function(key) {
+            return localStorage.getItem(key);
+        }
+        StorageBase.prototype.setItem = function(key, value) {
+            localStorage.setItem(key, value);
+        }
+        
+
+        // const Storage1 = new StorageBase();
+        // const Storage2 = new StorageBase();
+        // console.log(Storage1 === Storage2,'////');
+        const Storage = (function() {
+            let instance = null;
+            return function() {
+                if(!instance) {
+                    instance = new StorageBase();
+                }
+                return instance;
+            }
+        })();
+        const Storage1 = new Storage();
+        const Storage2 = new Storage();
+        console.log(Storage1 === Storage2,);
+        Storage1.setItem('name','张三');
+        console.log(Storage1.getItem('name'));
+        console.log(Storage2.getItem('name'));
+
+
+
+    </script>
+</body>
+</html>

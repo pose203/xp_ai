@@ -1,0 +1,17 @@
+<script>
+
+const arr = [1,2,3,4,5];
+// 可迭代对象
+for (let item of arr){
+    console.log(item);
+}
+
+// // for of item 还要拿到index?
+// for (const [index,item] of arr.entries()){
+//     // 每一项都是数组，第一项key，第二项value
+//     console.log(index,item);
+// }
+
+console.log(arr.entries());
+
+</script>

@@ -41,7 +41,7 @@
   const lazyload = function() {
     // 类数组 
     Array.prototype.forEach.call(eles, function(item, index) {
-      // console.log(item);
+      console.log(item);
       // 没有值，退出 data-original item.dataset.original
       if (item.dataset.original === "") return;
       // img 标签对象在视口的位置

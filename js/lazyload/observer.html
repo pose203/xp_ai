@@ -36,45 +36,44 @@
   function addObserver() {
     console.log('///')
     // 都应该被观察
-
     const eles = 
-    document.querySelectorAll('img[data-original][lazyload]');
+      document.querySelectorAll('img[data-original][lazyload]');
     // console.log(eles);
     // eles.forEach(ele => {
     //   console.log(ele);
     // })
-    
-    // Array.prototype.map.call(eles, (ele) => {
-    //     console.log(ele);
+    // Array.prototype.map.call(eles, ele => {
+    //   console.log(ele)
+    // })
+    // [eles[0], eles[1]...]  [] 纯正的数组
+    // [...eles]
+    // Array.from(eles).map(ele => {
+    //   console.log(ele, '???');
     // })
 
-    // Array.from(eles).map(ele => {
-    //   console.log(???);
-    // })
     const observer = new IntersectionObserver(function(changes) {
-     
-      //console.log(changes);
+      // console.log(changes);
       changes.forEach(function(element) {
-        if(element.intersectionRatio > 0 && element.isIntersecting  <= 1){
-            // 图片进入了视口
-            //element.target.src = element.target.dataset.original;
-            const img = new Image();
-            img.src = element.target.dataset.original;
-            img.onload = function() {
-              element.target.src = img.src;
-              
-            }
-          
+        console.log(element, element.target);
+        if (element.intersectionRatio > 0 && element.intersectionRatio <= 1) {
+          // 图片进入了视口
+          // element.target.src = element.target.dataset.original;
+          const img = new Image();
+          img.src = element.target.dataset.original;
+          img.onload = function() {
+            element.target.src = img.src;
+          }
         }
       })
     })
+    
+    // Array.prototype.forEach.call(eles)
     eles.forEach((item) => {
-        // 每个都观察一下
-        // 浏览器，主人
-        // item 被观察者
-        // 设计模式中的观察者模式
-        observer.observe(item);
-      
+      // 每个都观察
+      // 浏览器，主人
+      // item 被观察者、
+      // 设计模式中的观察者模式
+      observer.observe(item);
     })
   }
   addObserver()

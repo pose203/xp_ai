@@ -1,4 +1,4 @@
-# reeducer
+# reducer
 
 - 聊聊组件通信
     单向数据流 

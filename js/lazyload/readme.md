@@ -23,14 +23,20 @@
     - src 应该设置 但不能请求原来图片的地址(并发太多，图片太大)
     - 给个占位的图片 比较小
       缓存 请求一次
-- 等页面加载完毕后
+- 等页面渲染完毕后
   img 太多会严重影响页面的打开速度，第一重要的
   data-original 中
   自定义属性 data-数据属性
   图片的原地址是img 数据
   original 原来
 
+- 性能问题
+  解决了性能问题 首屏加载速度
+  onScroll 触发太频繁 JS
+  forEach imgs
+  getBoundingClientRect 触发回流
 
+- 防抖 节流
 
 - Intersection Observer
   - observer 观察 异步的,不是同步的 浏览器的后台

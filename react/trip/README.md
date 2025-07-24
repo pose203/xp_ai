@@ -112,3 +112,18 @@ README.MD 很重要 方便面试官
           - Route  不加path 对应的路由自动选择
           - tabber 模版
           - blank 模版
+  - tabber
+      - react-vant + @react-vant/icons
+      - value + onChange 响应式
+      - 直接点击链接分享 active 的设置
+
+
+- 自定义hooks
+   - useTitle
+   一定要设置
+
+- es6 特性使用
+   tabbar 的高亮
+   - arr.findIndex
+   - str.startsWith
+   - promise

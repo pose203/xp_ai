@@ -128,6 +128,8 @@ README.MD 很重要 方便面试官
   - 对各家模型比较感兴趣 升级为kimichat,doubaochat... 灵活
     性能、能力、性价比
     随意切换大模型，通过参数抽象
+  - 文生图
+     - 优化prompt 设计
 
 - 原子css
   - app.css 里面添加了通用样式

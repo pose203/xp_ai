@@ -17,6 +17,12 @@ importers:
       lib-flexible:
         specifier: ^0.3.2
         version: 0.3.2
+      mock.js:
+        specifier: ^0.2.0
+        version: 0.2.0
+      mockjs:
+        specifier: ^1.1.0
+        version: 1.1.0
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -1053,6 +1059,9 @@ packages:
 
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
+
+  mock.js@0.2.0:
+    resolution: {integrity: sha512-DKI8Rh/h7Mma+fg+6aD0uUvwn0QXAjKG6q3s+lTaCboCQ/kvQMBN9IXRBzgEaz4aPiYoRnKU9jVsfZp0mHpWrQ==}
 
   mockjs@1.1.0:
     resolution: {integrity: sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==}
@@ -2302,6 +2311,8 @@ snapshots:
   minimatch@3.1.2:
     dependencies:
       brace-expansion: 1.1.12
+
+  mock.js@0.2.0: {}
 
   mockjs@1.1.0:
     dependencies:

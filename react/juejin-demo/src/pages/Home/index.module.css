@@ -1,0 +1,40 @@
+.mainContainer {
+  margin-top: calc(var(--juejin-header-height) + var(--juejin-category-height));
+  padding: 16px 0;
+  flex: 1;
+  max-width: 960px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timelineIndexView {
+  display: flex;
+  padding: 0 16px;
+}
+
+.timelineContainer {
+  flex: 1;
+  background-color: #fff;
+  border-radius: var(--juejin-radius);
+}
+
+.openButton {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  padding: 8px 16px;
+  background-color: var(--juejin-brand-color);
+  color: white;
+  border-radius: var(--juejin-radius);
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(30, 128, 255, 0.5);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .timelineIndexView {
+    padding: 0 8px;
+  }
+} 

@@ -1,0 +1,64 @@
+/* 全局变量定义 */
+:root {
+  --juejin-font-color: #1d2129;
+  --juejin-brand-color: #1e80ff;
+  --juejin-background: #f4f5f5;
+  --juejin-gray-1: #86909c;
+  --juejin-gray-2: #4e5969;
+  --juejin-header-height: 60px;
+  --juejin-category-height: 46px;
+  --juejin-border-color: #e4e6eb;
+  --juejin-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --juejin-transition: all 0.2s;
+  --juejin-radius: 4px;
+  
+  /* 字体设置 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--juejin-font-color);
+  background-color: var(--juejin-background);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

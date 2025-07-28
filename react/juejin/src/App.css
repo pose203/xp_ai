@@ -1,0 +1,71 @@
+:root {
+  --primary-color: #1e80ff;
+  --bg-color: #f4f5f5;
+  --text-color: #333;
+  --secondary-text-color: #86909c;
+  --border-color: #e4e6eb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 50px;
+}
+
+.app-tabbar {
+  height: 50px;
+  border-top: 1px solid var(--border-color);
+  background-color: #fff;
+}
+
+/* Utility classes */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--secondary-text-color);
+}
+
+.text-red {
+  color: #ff5a5f;
+}

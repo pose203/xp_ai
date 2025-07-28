@@ -1,0 +1,94 @@
+.articleList {
+  display: flex;
+  flex-direction: column;
+}
+
+.articleItem {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--juejin-border-color);
+}
+
+.articleTitle {
+  margin-bottom: 8px;
+}
+
+.titleLink {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--juejin-font-color);
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.titleLink:hover {
+  color: var(--juejin-brand-color);
+}
+
+.articleExcerpt {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--juejin-gray-2);
+  line-height: 1.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.articleCover {
+  width: 120px;
+  height: 80px;
+  margin-bottom: 12px;
+  border-radius: var(--juejin-radius);
+  overflow: hidden;
+}
+
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.articleMeta {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: var(--juejin-gray-1);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.metaItem svg {
+  margin-right: 4px;
+}
+
+.withCover {
+  display: flex;
+  justify-content: space-between;
+}
+
+.withCoverContent {
+  flex: 1;
+  margin-right: 16px;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .articleItem {
+    padding: 16px;
+  }
+  
+  .articleCover {
+    width: 100px;
+    height: 70px;
+  }
+  
+  .articleMeta {
+    flex-wrap: wrap;
+  }
+} 

@@ -1,0 +1,50 @@
+.categoryNav {
+  position: fixed;
+  top: var(--juejin-header-height);
+  left: 0;
+  right: 0;
+  height: var(--juejin-category-height);
+  background-color: #fff;
+  box-shadow: var(--juejin-box-shadow);
+  z-index: 99;
+}
+
+.categoryNavList {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.categoryItem {
+  padding: 0 16px;
+  font-size: 14px;
+  color: var(--juejin-gray-2);
+  line-height: var(--juejin-category-height);
+  transition: var(--juejin-transition);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.categoryItem:hover, .active {
+  color: var(--juejin-brand-color);
+}
+
+.active {
+  box-shadow: inset 0 -2px 0 var(--juejin-brand-color);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .categoryNavList {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0 8px;
+  }
+  
+  .categoryItem {
+    padding: 0 8px;
+  }
+} 

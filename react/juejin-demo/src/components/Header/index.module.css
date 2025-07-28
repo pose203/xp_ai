@@ -1,0 +1,164 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--juejin-header-height);
+  background-color: #fff;
+  box-shadow: var(--juejin-box-shadow);
+  z-index: 100;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+
+.logoImg {
+  height: 22px;
+}
+
+.mobile {
+  display: none;
+}
+
+.searchBox {
+  position: relative;
+  width: 300px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  width: 100%;
+  height: 36px;
+  padding: 0 40px 0 16px;
+  border: 1px solid var(--juejin-border-color);
+  border-radius: var(--juejin-radius);
+  background-color: var(--juejin-background);
+  font-size: 14px;
+  color: var(--juejin-font-color);
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: var(--juejin-brand-color);
+}
+
+.searchIconContainer {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainNav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+}
+
+.mainNavList {
+  display: flex;
+}
+
+.navItem {
+  padding: 0 12px;
+  font-size: 14px;
+  color: var(--juejin-gray-2);
+  transition: var(--juejin-transition);
+}
+
+.navItem:hover, .active {
+  color: var(--juejin-brand-color);
+}
+
+.phoneShowMenu {
+  display: none;
+}
+
+.phoneHide {
+  display: flex;
+  list-style: none;
+}
+
+.newFont {
+  font-size: 12px;
+  color: #f64c4c;
+  margin-left: 4px;
+}
+
+.userActions {
+  display: flex;
+  align-items: center;
+}
+
+.notificationIcon {
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.userAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .logoImg {
+    display: none;
+  }
+  
+  .mobile {
+    display: block;
+    height: 22px;
+  }
+  
+  .searchBox {
+    display: none;
+  }
+  
+  .phoneShowMenu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .phoneHide {
+    display: none;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+} 

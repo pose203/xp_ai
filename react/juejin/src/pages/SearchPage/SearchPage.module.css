@@ -1,0 +1,119 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.searchHeader {
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #fff;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.searchInput {
+  flex: 1;
+  --rv-search-background: #f5f5f5;
+  --rv-search-content-background: #f5f5f5;
+}
+
+.searchButton {
+  white-space: nowrap;
+  --rv-button-default-height: 34px;
+  --rv-button-primary-background: #1e80ff;
+}
+
+.tabContainer {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.tabs {
+  --rv-tab-text-color: #86909c;
+  --rv-tab-active-text-color: #1e80ff;
+  --rv-tabs-bottom-bar-color: #1e80ff;
+  --rv-tabs-line-height: 44px;
+  --rv-tab-font-size: 15px;
+}
+
+.historyContainer {
+  padding: 0 12px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.historyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px;
+}
+
+.historyTitle {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #86909c;
+}
+
+.arrowIcon {
+  margin-left: 4px;
+}
+
+.historyActions {
+  display: flex;
+  align-items: center;
+}
+
+.deleteIcon {
+  font-size: 16px;
+  color: #86909c;
+}
+
+.deleteOptions {
+  display: flex;
+  align-items: center;
+}
+
+.deleteOption {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.separator {
+  margin: 0 4px;
+  color: #ff5a5f;
+}
+
+.historyTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.historyTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f5f5f5;
+  border-radius: 16px;
+}
+
+.emptyHistory {
+  width: 100%;
+  text-align: center;
+  color: #86909c;
+  font-size: 14px;
+  padding: 20px 0;
+} 

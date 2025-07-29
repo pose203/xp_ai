@@ -29,6 +29,7 @@ const SearchBox = (props) => {
     }
     const clearQuery = () => {
         setQuery("");
+        
         queryRef.current.value = "";
         queryRef.current.focus();
     }
@@ -36,8 +37,8 @@ const SearchBox = (props) => {
     // const handleQueryDebounce = debounce(handleQuery, 500);
     // 2. useMemo 缓存debounce结果 否则会反复执行
     const handleQueryDebounce = useMemo(() => {
-        return debounce(handleQuery, 1000);
-    }, [handleQuery])
+        return debounce(handleQuery, 300);
+    }, [])
     const displayStyle = query?{display: 'block'}:{display:'none'};
     useEffect(() => {
         console.log(query, '/////');

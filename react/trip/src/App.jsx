@@ -2,7 +2,7 @@ import './App.css'
 import {
   Suspense,
   lazy
-} from 'react'
+} from 'react';
 import {
   Routes,
   Route,
@@ -10,41 +10,39 @@ import {
 } from 'react-router-dom'
 import MainLayout from '@/components/MainLayout'
 import BlankLayout from '@/components/BlankLayout'
-//import Loading from '@/components/Loading'
+import Loading from '@/components/Loading';
 
-const Home = lazy(() => import('@/pages/Home'))
-const Search = lazy(() => import('@/pages/Search'))
-const Discount = lazy(() => import('@/pages/Discount'))
-const Collection = lazy(() => import('@/pages/Collection'))
-const Trip = lazy(() => import('@/pages/Trip'))
-const Account = lazy(() => import('@/pages/Account'))
-// 删除重复的Loading组件导入
-// const Loading = lazy(() => import('@/components/Loading'))
+const Home = lazy(() => import('@/pages/Home'));
+const Discount = lazy(() => import('@/pages/Discount'));
+const Collection = lazy(() => import('@/pages/Collection'));
+const Trip = lazy(() => import('@/pages/Trip'));
+const Account = lazy(() => import('@/pages/Account'));
+const Search = lazy(() => import('@/pages/Search'));
+const Detail = lazy(() => import('@/pages/Detail'));
+
 
 function App() {
-  
+
   return (
     <>
-       {/* //<Loading />  */}
-       <Suspense fallback={<div>loading...</div>}>
-       {/* 带有tabbar的layout */}
-        <Routes>
+      <Suspense fallback={<Loading />}>
+        {/* 带有tabbar的Layout */}
+        <Routes >
           <Route element={<MainLayout />}>
-            <Route path='/' element={<Navigate to="/home" />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/discount' element={<Discount />} />
-            <Route path='/collection' element={<Collection />} />
-            <Route path='/trip' element={<Trip />} />
-            <Route path='/account' element={<Account />} />
+            <Route path="/" element={<Navigate to="/home" />}/>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/discount" element={<Discount/>}/>
+            <Route path="/collection" element={<Collection/>}/>
+            <Route path="/trip" element={<Trip/>}/>
+            <Route path="/account" element={<Account/>}/>
           </Route>
-        
-        {/* 空的 */}
-        
+          {/* 空的Layout */}
           <Route element={<BlankLayout />}>
-            <Route path='/search' element={<Search />} />
+            <Route path="/search" element={<Search />}/>
+            <Route path="/detail/:id" element={<Detail />} />
           </Route>
         </Routes>
-       </Suspense>
+      </Suspense>
     </>
   )
 }

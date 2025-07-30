@@ -124,6 +124,22 @@ ReadMe.md 很重要 方便面试官
     - api 
         GoogleSuggest
     - localStorage
+
+- 瀑布流
+    - 小红书等主流App的内容浏览用户体验产品
+      两列、图片高度不一致、落差感
+      滚动加载更多，图片懒加载
+    - 接口
+      /api/images?page=${n} 支持翻页
+      唯一id page+index
+      随机图片 高度随机
+
+    - images 怎么放到 两列中? MVVM
+    数据驱动界面(2列) 奇偶
+    - 加载更多 位于盒子底部的元素 通过使用 IntersectionObserve
+    观察它是否出现在视窗，性能更好，使用了观察者模式
+    - key id 下拉刷新
+  
     
 ## 项目亮点和难点
 - 前端智能
@@ -165,6 +181,10 @@ ReadMe.md 很重要 方便面试官
     - arr.findIndex 
     - str.startsWith 
     - promise
+    瀑布流随机数据生成
+    - Array.from({length:pageSize}, (_,i) =>({
+
+    }))
 
 - 项目迭代
     - 功能由浅入深

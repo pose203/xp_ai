@@ -1,7 +1,16 @@
+import {useImageStore} from '@/store/useImageStore'
+import {useEffect} from 'react';
+import Waterfall from '@/components/Waterfall';
+
+
 const Collection = () => {
+  const {images,loading,fetchMore} = useImageStore();
+  useEffect(()=>{
+    fetchMore();
+  },[])
   return (
     <>
-      Collection
+        <Waterfall images={images} fetchMore={fetchMore} loading={loading}/>
     </>
   )
 }

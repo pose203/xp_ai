@@ -1,0 +1,124 @@
+.tabBar {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.tabList {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.tabList::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.tabItem {
+  position: relative;
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-right: var(--spacing-sm);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  min-width: fit-content;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  overflow: hidden;
+}
+
+.tabItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: var(--radius-lg);
+}
+
+.tabItem.active::before {
+  opacity: 0.1;
+}
+
+.tabText {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.tabItem.active .tabText {
+  color: var(--primary-color);
+  font-weight: 600;
+  transform: scale(1.05);
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 24px;
+    opacity: 1;
+  }
+}
+
+.tabItem:hover .tabText {
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.tabItem:hover {
+  transform: translateY(-1px);
+}
+
+.tabItem:hover::before {
+  opacity: 0.05;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .tabList {
+    padding: 0 12px;
+  }
+  
+  .tabItem {
+    padding: 10px 12px;
+    margin-right: 4px;
+  }
+  
+  .tabText {
+    font-size: 14px;
+  }
+}

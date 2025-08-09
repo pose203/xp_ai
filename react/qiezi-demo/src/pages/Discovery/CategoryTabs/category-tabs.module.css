@@ -1,0 +1,92 @@
+.categoryContainer {
+  padding: 0 12px;
+  background: white;
+}
+
+.categoryTabs {
+  border: none;
+}
+
+.categoryTabs :global(.rv-tabs__nav) {
+  background: transparent;
+  border: none;
+}
+
+.categoryTabs :global(.rv-tabs__line) {
+  background: #1976d2;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.categoryTabs :global(.rv-tab) {
+  color: #555;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-right: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.categoryTabs :global(.rv-tab):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.categoryTabs :global(.rv-tab--active) {
+  color: #667eea;
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px);
+}
+
+.tabTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tabIcon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.tabText {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .categoryContainer {
+    padding: 0 10px;
+  }
+  
+  .categoryTabs :global(.rv-tab) {
+    padding: 6px 12px;
+    margin-right: 6px;
+    border-radius: 16px;
+  }
+  
+  .tabText {
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .tabIcon {
+    font-size: 14px;
+  }
+  
+  .tabTitle {
+    gap: 4px;
+  }
+}

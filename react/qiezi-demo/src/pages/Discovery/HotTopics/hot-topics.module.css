@@ -1,0 +1,102 @@
+.topicsContainer {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.titleIcon {
+  color: #ff4757;
+  font-size: 18px;
+}
+
+.moreText {
+  font-size: 13px;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.moreText:hover {
+  color: #1976d2;
+}
+
+.topicsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topicItem {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.topicItem:hover {
+  background: #e3f2fd;
+  border-color: #1976d2;
+  transform: translateY(-1px);
+}
+
+.topicTag {
+  border: none !important;
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.topicHeat {
+  font-size: 11px;
+  color: #999;
+  margin-left: 6px;
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .title {
+    font-size: 15px;
+  }
+  
+  .titleIcon {
+    font-size: 16px;
+  }
+  
+  .topicItem {
+    padding: 5px 10px;
+  }
+  
+  .topicTag {
+    font-size: 12px;
+  }
+  
+  .topicHeat {
+    font-size: 10px;
+    margin-left: 4px;
+  }
+  
+  .moreText {
+    font-size: 12px;
+  }
+}

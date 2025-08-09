@@ -1,0 +1,271 @@
+.messageContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+.navContainer {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.navbar :global(.rv-nav-bar__title) {
+  color: white;
+  font-weight: 600;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navIcon {
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.navIcon:hover {
+  opacity: 0.8;
+}
+
+.navIcon:active {
+  opacity: 0.6;
+}
+
+/* AI聊天快捷入口 */
+.aiChatContainer {
+  background: white;
+  padding: 16px;
+  margin: 8px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.aiChatCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.aiChatInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.aiAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.aiDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.aiName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.aiDesc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.3;
+}
+
+.startChatBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  transition: all 0.2s ease;
+}
+
+.startChatBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.startChatBtn:active {
+  transform: translateY(0);
+}
+
+/* 统计信息区域 */
+.statsContainer {
+  background: white;
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.statsGrid {
+  display: flex;
+  justify-content: space-around;
+}
+
+.statItem {
+  text-align: center;
+  flex: 1;
+}
+
+.statValue {
+  font-size: 20px;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* 聊天列表容器 */
+.chatListContainer {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 快捷操作按钮（可选） */
+.floatingActions {
+  position: fixed;
+  bottom: 80px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 99;
+}
+
+.floatingButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floatingButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
+}
+
+.floatingButton:active {
+  transform: translateY(0);
+}
+
+/* 搜索框（如果展开） */
+.searchOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchHeader {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 8px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  background: #f5f5f5;
+  font-size: 14px;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+}
+
+.searchCancel {
+  color: #667eea;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.searchResults {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+/* 空状态样式 */
+.emptySearch {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .statsContainer {
+    padding: 12px;
+  }
+  
+  .statValue {
+    font-size: 18px;
+  }
+  
+  .statLabel {
+    font-size: 11px;
+  }
+  
+  .navActions {
+    gap: 12px;
+  }
+  
+  .navIcon {
+    font-size: 16px;
+  }
+}

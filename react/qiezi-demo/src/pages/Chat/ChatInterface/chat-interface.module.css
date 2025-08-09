@@ -1,0 +1,347 @@
+.chatContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.loadingContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.messagesList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 12px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.messageItem {
+  display: flex;
+  margin-bottom: 16px;
+  align-items: flex-end;
+}
+
+.myMessage {
+  flex-direction: row-reverse;
+}
+
+.theirMessage {
+  flex-direction: row;
+}
+
+.messageAvatar {
+  margin: 0 8px;
+  flex-shrink: 0;
+}
+
+.messageContent {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.myMessage .messageContent {
+  align-items: flex-end;
+}
+
+.theirMessage .messageContent {
+  align-items: flex-start;
+}
+
+.messageBubble {
+  padding: 10px 14px;
+  border-radius: 18px;
+  word-wrap: break-word;
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.myBubble {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom-right-radius: 6px;
+}
+
+.theirBubble {
+  background: white;
+  color: #333;
+  border-bottom-left-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.messageText {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.imageMessage {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.messageTime {
+  font-size: 11px;
+  color: #999;
+  margin: 0 4px;
+  display: flex;
+  align-items: center;
+}
+
+.myTime {
+  justify-content: flex-end;
+}
+
+.theirTime {
+  justify-content: flex-start;
+}
+
+.messageStatus {
+  margin-left: 4px;
+  font-size: 10px;
+}
+
+.messageStatus.sending {
+  color: #999;
+}
+
+.messageStatus.sent {
+  color: #52c41a;
+}
+
+.messageStatus.read {
+  color: #1890ff;
+}
+
+/* 输入框区域 */
+.inputContainer {
+  background: white;
+  padding: 12px;
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.actionButton {
+  flex-shrink: 0;
+  border-radius: 20px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e0e0e0;
+  background: #f8f9fa;
+}
+
+.messageInput {
+  flex: 1;
+  border-radius: 20px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  min-height: 36px;
+}
+
+.messageInput :global(.rv-field__control) {
+  border: none;
+  background: transparent;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.sendButton {
+  flex-shrink: 0;
+  border-radius: 20px;
+  height: 36px;
+  padding: 0 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sendButton:disabled {
+  background: #d9d9d9;
+  opacity: 0.6;
+}
+
+/* 消息列表滚动条样式 */
+.messagesList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.messagesList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.messagesList::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.messagesList::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* 动画效果 */
+.messageItem {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* AI分析消息样式 */
+.aiAnalysisBubble {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  max-width: 85% !important;
+}
+
+.aiAnalysisHeader {
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 8px;
+}
+
+.aiTag {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.aiAnalysisContent {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* 聊天图片样式 */
+.chatImage {
+  max-width: 200px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  display: block;
+}
+
+/* AI打字指示器 */
+.typingBubble {
+  background: #e1e1e1 !important;
+  border: none !important;
+  padding: 12px 16px !important;
+}
+
+.typingIndicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 14px;
+}
+
+.typingDots {
+  display: flex;
+  gap: 3px;
+}
+
+.typingDots span {
+  width: 6px;
+  height: 6px;
+  background-color: #999;
+  border-radius: 50%;
+  animation: typingAnimation 1.4s infinite ease-in-out;
+}
+
+.typingDots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typingDots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typingAnimation {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 流式输出光标 */
+.cursor {
+  display: inline-block;
+  animation: cursorBlink 1s infinite;
+  color: currentColor;
+  font-weight: 400;
+  margin-left: 1px;
+}
+
+@keyframes cursorBlink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .messagesList {
+    padding: 12px 8px;
+  }
+  
+  .inputContainer {
+    padding: 8px;
+  }
+  
+  .messageContent {
+    max-width: 75%;
+  }
+  
+  .messageBubble {
+    padding: 8px 12px;
+  }
+  
+  .messageText {
+    font-size: 13px;
+  }
+  
+  .aiAnalysisBubble {
+    max-width: 90% !important;
+  }
+  
+  .chatImage {
+    max-width: 150px !important;
+    max-height: 150px !important;
+  }
+}

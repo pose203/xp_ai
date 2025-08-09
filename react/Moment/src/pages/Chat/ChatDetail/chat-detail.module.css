@@ -1,0 +1,308 @@
+.chatDetailContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.navContainer {
+  position: relative;
+  z-index: 100;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.navbar :global(.rv-nav-bar__left),
+.navbar :global(.rv-nav-bar__right) {
+  color: white;
+}
+
+/* 导航栏标题区域 */
+.navTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navAvatar {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.userName {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.2;
+}
+
+.userStatus {
+  font-size: 11px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.onlineStatus {
+  color: #52c41a;
+  background: rgba(82, 196, 26, 0.1);
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.offlineStatus {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+.aiStatus {
+  color: #1890ff;
+  background: rgba(24, 144, 255, 0.1);
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-weight: 500;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* 导航栏操作按钮 */
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navIcon {
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.navIcon:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navIcon:active {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(0.95);
+}
+
+/* 聊天容器 */
+.chatContainer {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 用户资料卡片（悬浮显示） */
+.userProfileCard {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+  min-width: 280px;
+  max-width: 320px;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.profileAvatar {
+  border: 3px solid #f0f0f0;
+}
+
+.profileInfo {
+  flex: 1;
+}
+
+.profileName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.profileMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #666;
+}
+
+.profileAge {
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.profileLocation {
+  color: #999;
+}
+
+.profileBio {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+.profileActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.profileButton {
+  flex: 1;
+  height: 36px;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+.secondaryButton {
+  background: #f8f9fa;
+  color: #666;
+  border: 1px solid #e0e0e0;
+}
+
+/* 通话状态指示器 */
+.callIndicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  z-index: 300;
+}
+
+.callAvatar {
+  margin-bottom: 12px;
+}
+
+.callStatus {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.callDuration {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.callActions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.callButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.2s;
+}
+
+.endCallButton {
+  background: #ff4757;
+  color: white;
+}
+
+.muteButton {
+  background: #666;
+  color: white;
+}
+
+.callButton:hover {
+  transform: scale(1.05);
+}
+
+.callButton:active {
+  transform: scale(0.95);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .navActions {
+    gap: 12px;
+  }
+  
+  .navIcon {
+    font-size: 16px;
+  }
+  
+  .userProfileCard {
+    margin: 0 16px;
+    min-width: auto;
+    max-width: none;
+    left: 16px;
+    right: 16px;
+    transform: none;
+  }
+  
+  .profileActions {
+    flex-direction: column;
+  }
+  
+  .callIndicator {
+    margin: 0 20px;
+    left: 20px;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+}

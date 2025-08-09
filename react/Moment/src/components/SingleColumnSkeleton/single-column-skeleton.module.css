@@ -1,0 +1,58 @@
+/* 单列骨架屏容器 */
+.wrapper {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 骨架屏列表 */
+.skeletonList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  background: #fff;
+}
+
+/* 响应式调整 */
+@media (min-width: 768px) {
+  .wrapper {
+    background-color: #fff;
+  }
+  
+  .skeletonList {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (min-width: 1200px) {
+  .skeletonList {
+    max-width: 700px;
+  }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .wrapper {
+    background-color: #0f0f0f;
+  }
+  
+  .skeletonList {
+    background: #1a1a1a;
+  }
+  
+  @media (min-width: 768px) {
+    .wrapper {
+      background-color: #1a1a1a;
+    }
+    
+    .skeletonList {
+      background: #1a1a1a;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+  }
+}

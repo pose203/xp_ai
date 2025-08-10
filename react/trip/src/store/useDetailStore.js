@@ -10,19 +10,28 @@ const useDetailStore = create((set) => ({
         images: [
             {
                 alt: '',
-                url: 'https://img.36krcdn.com/hsossms/20250729/v2_17dc4793268c46558e68355c5b25a55d@000000@ai_oswg369871oswg1536oswg722_img_000~tplv-1marlgjv7f-ai-v3:600:400:600:400:q70.jpg?x-oss-process=image/format,webp'
+                url: 'https://images.pexels.com/photos/1314550/pexels-photo-1314550.jpeg'
             }
         ],
         price: ''
     },
     loading: false,
-    setDetail: async () => {
-        set({loading: true})
-        const res = await getDetail();
+    setDetail: async (id) => {
         set({
-            loading: false,
-            detail: res.data
-        });
+            loading: true
+        })
+        try {
+            const res = await getDetail(id);
+            set({
+                loading: false,
+                detail: res.data
+            });
+        } catch (error) {
+            console.error('Failed to fetch detail:', error);
+            set({
+                loading: false
+            });
+        }
     }
 }))
 

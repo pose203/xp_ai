@@ -24,6 +24,7 @@ import {
     Search,
     HomeO,
     UserO
+
 } from '@react-vant/icons'
 import styles from './account.module.css';
 import {
@@ -46,7 +47,7 @@ const Account = () => {
         nickname: '奶龙',
         level: '5级',
         slogan: '保持热爱，奔赴山海。',
-        avatar: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg'
+        avatar: 'https://images.pexels.com/photos/1314550/pexels-photo-1314550.jpeg'
     })
     useTitle("我的")
     const [showActionSheet, setShowActionSheet] = useState(false);

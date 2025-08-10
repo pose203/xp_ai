@@ -24,20 +24,13 @@ const Trip = () => {
   const [text, setText] = useState("");
   const [isSending, setIsSending] = useState(false);
   // 数据驱动界面
-  // 静态界面 
+  // 静态界面 - 修复消息顺序，AI应该先打招呼
   const [messages, setMessages] = useState([
       {
-          id: 2,
-          content: 'hello~',
-          role: 'user'
-      },
-      {
           id: 1,
-          content: 'hello, I am your assistant~~',
+          content: '您好！我是您的旅游智能客服，有什么可以帮助您的吗？✈️',
           role: 'assistant'
       }
-    
-      
   ]);
 
   const handleChat = async () => {
@@ -48,28 +41,55 @@ const Trip = () => {
           return 
       }
       setIsSending(true)
+      const userMessage = text;
       setText('')
+      
+      // 添加用户消息
       setMessages((prev) => {
         return [
           ...prev,
           {
+            id: Date.now(), // 添加唯一ID
             role: 'user',
-            content: text
+            content: userMessage
           }
-      ]
-  })
-      const newMessage = await chat ([{
-        role:'user',
-        content:text
-      }]);
-      setMessages((prev) => {
-        return [
-          ...prev,
-          newMessage.data
         ]
       })
-      setIsSending(false)
       
+      try {
+        // 获取AI回复
+        const newMessage = await chat([{
+          role: 'user',
+          content: userMessage
+        }]);
+        
+        // 添加AI回复消息
+        setMessages((prev) => {
+          return [
+            ...prev,
+            {
+              id: Date.now() + 1, // 添加唯一ID
+              role: 'assistant',
+              content: newMessage.data.content || newMessage.data
+            }
+          ]
+        })
+      } catch (error) {
+        console.error('聊天失败:', error);
+        // 添加错误提示消息
+        setMessages((prev) => {
+          return [
+            ...prev,
+            {
+              id: Date.now() + 1,
+              role: 'assistant',
+              content: '抱歉，我现在无法回复，请稍后再试。'
+            }
+          ]
+        })
+      }
+      
+      setIsSending(false)
   }
   return (
       <div className="flex flex-col h-all">

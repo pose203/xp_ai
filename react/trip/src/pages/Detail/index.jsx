@@ -56,7 +56,7 @@ const Detail = () => {
     const { loading, detail, setDetail } = useDetailStore();
     // useTitle("我的")
     useEffect(() => {
-        setDetail()
+        setDetail(id)
     }, [])
     useEffect(() => {
         useTitle(detail.title);

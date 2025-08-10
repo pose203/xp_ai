@@ -2,12 +2,19 @@
 	"devDependencies": {
 		"@babel/cli": "^7.28.0",
 		"@babel/core": "^7.28.0",
-		"@babel/preset-env": "^7.28.0"
+		"@babel/preset-env": "^7.28.0",
+		"nodemon": "^3.1.10"
 	},
 	"dependencies": {
+		"@react-vant/icons": "^0.1.0",
 		"axios": "^1.10.0",
+		"express": "^5.1.0",
+		"lib-flexible": "^0.3.2",
+		"postcss-pxtorem": "^6.1.0",
 		"react-dom": "^19.1.0",
 		"react-router-dom": "^7.7.0",
-		"vite-plugin-mock": "^3.0.2"
+		"react-vant": "^3.3.5",
+		"vite-plugin-mock": "^3.0.2",
+		"zustand": "^5.0.7"
 	}
 }

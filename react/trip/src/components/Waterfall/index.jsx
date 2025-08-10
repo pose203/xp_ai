@@ -12,13 +12,17 @@ const Waterfall = (props) => {
     useEffect(()=>{
         // ref 出现视窗了  IntersectionObserver
         // 观察者
-        const observer = new IntersectionObserver(([entry])=>{
+        const observer = new IntersectionObserver(([entry],obs)=>{
             console.log(entry);
             if(entry.isIntersecting){
                 fetchMore();
+               
             }
+            //obs.unobserve(entry.target);
+
         })
         if(loader.current) observer.observe(loader.current);
+        return ()=> observer.disconnect();
     },[])
 
     return (

@@ -133,14 +133,24 @@ ReadMe.md 很重要 方便面试官
       /api/images?page=${n} 支持翻页
       唯一id page+index
       随机图片 高度随机
-
     - images 怎么放到 两列中? MVVM
     数据驱动界面(2列) 奇偶
     - 加载更多 位于盒子底部的元素 通过使用 IntersectionObserve
     观察它是否出现在视窗，性能更好，使用了观察者模式
+    组件加载时，直接使用disconnext 释放资源。防止内存泄漏
     - key id 下拉刷新
-  
-    
+    - 使用 IntersectionObserve 再次图片懒加载 data-src
+- toast 组件封装
+    - 需要自定义，UI组件库不满足需求
+    - UI props
+    - JS 显示出来 跨层级通信
+        观察者
+    - mitt eventBus 事件总线
+       - 实例化 mitt()
+       - on(自定义事件的名字,callback)
+       - emit(自定义事件的名字,参数)
+       组件通过监听一个自定义事件，实现基于事件的组件通信
+
 ## 项目亮点和难点
 - 前端智能
     - chat 函数
@@ -157,8 +167,33 @@ ReadMe.md 很重要 方便面试官
     - 原子类的css, 
         一个元素按功能逻辑拆分成多个类，和原子一样
         元素的样式就可以由这些原子类组合而成
-        样式复用的更好，以后几乎可以不用写样式  
+        样式复用的更好，以后几乎可以不用写样式
+    - 智能生成图片
+        -产品
+        冰球社群的宠物 智能出图
+        社交属性
+        - 商业价值
+        技术服务
+        coze 工作流 智能编排AI 流程 编程一种
+    - 设计工作流
+        - 创建工作流 ani_pic
+          上传宠物照片，生成宠物曲棍球运动员照片
+        - 代码节点
+          参数校验和逻辑功能，返回运行的结果
+        - 图片生成流程
+          - 图片理解插件 计算机视觉
+          - 大模型 特征提取
+          prompt
+    - workflow_id 7533135233135378447
+    - token pat_DJNEYsTJ7dGmUm1q9AujZ0ufx0qtJDUshcuR28VmMYVEPPvKpCQ9W5MGiA8s1RmM
+    - coze 图片要先上传到coze中
+           uploadUrl + token + new FormData
+           append(file)
+           file_id
+    - workflowUrl + workflow_id + token
+           工作流需要的参数
 - 用户体验优化
+
     - 搜索建议,防抖 + useMemo 性能优化
     - 组件粒度划分
         React.memo + useCallback
@@ -166,11 +201,28 @@ ReadMe.md 很重要 方便面试官
     - 相关商品 + 热门推荐(产品)
     - SPA
     - 骨架屏 不用让用户等待了
+    - 文件上传的preview html5 FileReader
+
+- 语言输入发表文章
+    - 字节的tts
+    - onMouseDown
+    - BOM htnl5
+    navigator.mediaDevices.getUserMedia{{
+        audio:true
+    }}
+    用户隐私，要授权 getLocation
+
 ## 项目遇到过什么问题， 怎么解决的
 - chat messages 遇到message 覆盖问题 
 - 闭包陷阱问题 
     一次事件里面，两次setMessages()
-
+- 升级瀑布流?
+    - 骨架屏
+    - 奇偶images 两列分配可能有时候会像天蚕脚一样，不好看，随机吗
+      两个响应式数组，判断哪一列高度更少，将新得到的img加入那个数组
+    - intersectionObserver 用的两次，重复了，违反dry原则 封装?
+      hooks
+ 
 
 - 自定义Hooks
     - useTitle
@@ -200,3 +252,6 @@ ReadMe.md 很重要 方便面试官
         position:fixed + tlrb0 + margin auto
     - React.memo 无状态组件，不重新渲染
     - animation 
+
+- AI 功能
+  智能前端(http 请求) + 工作流 + coze api + ai 全新工作链路 + 自动化Agent 

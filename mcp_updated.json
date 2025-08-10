@@ -1,0 +1,40 @@
+{
+    "mcpServers": {
+        "browsermcp": {
+            "command": "npx",
+            "args": [
+                "@browsermcp/mcp@latest"
+            ]
+        },
+        "Framelink Figma MCP": {
+            "args": [
+                "/c",
+                "npx",
+                "-y",
+                "figma-developer-mcp",
+                "--figma-api-key=YOUR-KEY",
+                "--stdio"
+            ],
+            "command": "cmd"
+        },
+        "frontend-review": {
+            "args": [
+                "frontend-review-mcp",
+                "HYPERBOLIC_API_KEY=YOUR-HYPERBOLIC-API-KEY"
+            ],
+            "command": "npx"
+        },
+        "webdev": {
+            "args": [
+                "webdev-mcp"
+            ],
+            "command": "npx"
+        },
+        "browser-tools": {
+            "args": [
+                "@agentdeskai/browser-tools-mcp"
+            ],
+            "command": "npx"
+        }
+    }
+}

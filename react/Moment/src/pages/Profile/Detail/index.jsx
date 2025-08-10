@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDetailStore } from '@/store/useDetailStore';
-import { Skeleton, Image, Divider } from 'react-vant';
+import { Skeleton, Image as RVImage, Divider } from 'react-vant';
 import { ArrowLeft } from '@react-vant/icons';
 import styles from './detail.module.css';
 
@@ -42,10 +42,10 @@ const DetailPage = () => {
         </button>
         <span>详情</span>
       </nav>
-      <Image src={url} alt={title} className={styles.mainImage} />
+      <RVImage src={url} alt={title} className={styles.mainImage} />
       
       <div className={styles.authorInfo}>
-        <Image src={author.avatar} round className={styles.avatar} />
+        <RVImage src={author.avatar} round className={styles.avatar} />
         <span className={styles.authorName}>{author.name}</span>
       </div>
 
@@ -58,7 +58,7 @@ const DetailPage = () => {
         {comments.map(comment => (
           <div key={comment.id} className={styles.comment}>
             <div className={styles.commentHeader}>
-              <Image src={comment.avatar} round className={styles.commentAvatar} />
+              <RVImage src={comment.avatar} round className={styles.commentAvatar} />
               <strong className={styles.commentUser}>{comment.user}</strong>
             </div>
             <span className={styles.commentText}>{comment.text}</span>

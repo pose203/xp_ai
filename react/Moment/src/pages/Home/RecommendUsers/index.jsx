@@ -1,4 +1,4 @@
-import { Button, Image } from 'react-vant';
+import { Button, Image as RVImage } from 'react-vant';
 import { UserO, AddO } from '@react-vant/icons';
 import styles from './recommend-users.module.css';
 
@@ -56,7 +56,7 @@ const RecommendUsers = () => {
         {users.map(user => (
           <div key={user.id} className={styles.userItem}>
             <div className={styles.userInfo} onClick={() => handleUserClick(user)}>
-              <Image
+              <RVImage
                 round
                 width="48"
                 height="48"

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Image, Button, Field, Loading, Toast } from 'react-vant';
+import { Image as RVImage, Button, Field, Loading, Toast } from 'react-vant';
 import { PhotoO } from '@react-vant/icons';
 import { getChatMessages, sendMessage } from '../../../../mock/chatData.js';
 import { analyzeImageWithSuggestions } from '@/services/doubaoAPI';
@@ -222,7 +222,7 @@ const ChatInterface = ({ userId, userInfo }) => {
         className={`${styles.messageItem} ${isMyMessage ? styles.myMessage : styles.theirMessage}`}
       >
         {!isMyMessage && (
-          <Image
+          <RVImage
             round
             width="32"
             height="32"
@@ -270,7 +270,7 @@ const ChatInterface = ({ userId, userInfo }) => {
         </div>
         
         {isMyMessage && (
-          <Image
+          <RVImage
             round
             width="32"
             height="32"
@@ -309,7 +309,7 @@ const ChatInterface = ({ userId, userInfo }) => {
         {/* AI正在打字的状态 */}
         {aiTyping && (
           <div className={`${styles.messageItem} ${styles.theirMessage}`}>
-            <Image
+            <RVImage
               round
               width="32"
               height="32"

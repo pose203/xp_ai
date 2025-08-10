@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Image, ActionSheet, Loading } from 'react-vant';
+import { Image as RVImage, ActionSheet, Loading } from 'react-vant';
 import {
   StarO,
   LikeO,
@@ -215,7 +215,7 @@ const Me = () => {
       <div className={styles.userSection}>
         <div className={styles.userInfo}>
           <div className={styles.avatarWrapper}>
-            <Image
+            <RVImage
               round
               width="80"
               height="80"

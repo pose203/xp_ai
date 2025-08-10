@@ -19,7 +19,7 @@ export const compressImage = (file, options = {}) => {
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    const img = new Image();
+  const img = new window.Image();
 
     img.onload = () => {
       // 计算压缩后的尺寸
@@ -68,7 +68,7 @@ export const cropToCircle = (imageUrl, size = 256) => {
   return new Promise((resolve, reject) => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    const img = new Image();
+  const img = new window.Image();
 
     img.onload = () => {
       canvas.width = size;
@@ -176,7 +176,7 @@ export const validateImageFile = (file) => {
  */
 export const getImageInfo = (file) => {
   return new Promise((resolve, reject) => {
-    const img = new Image();
+  const img = new window.Image();
     const url = URL.createObjectURL(file);
 
     img.onload = () => {

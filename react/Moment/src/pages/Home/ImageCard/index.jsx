@@ -47,6 +47,7 @@ const ImageCard = (props) => {
           className={styles.image}
         />
         
+        {/* 视频标识和时长 */}
         {isVideo && (
           <div className={styles.videoOverlay}>
             <PlayCircleO className={styles.playIcon} />
@@ -58,6 +59,7 @@ const ImageCard = (props) => {
           </div>
         )}
 
+        {/* 分类标签 */}
         {category && (
           <div className={styles.categoryTag}>
             {category}
@@ -65,6 +67,7 @@ const ImageCard = (props) => {
         )}
       </div>
 
+      {/* 内容信息 */}
       <div className={styles.cardContent}>
         <div className={styles.cardTitle}>
           {title}

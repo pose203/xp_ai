@@ -1,0 +1,124 @@
+.container {
+  padding: 15px;
+  background-color: #fff;
+  padding-top: 60px; /* 为固定导航栏留出空间 */
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #ebedf0;
+  z-index: 10;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: inherit;
+  outline: none;
+}
+
+.backButton:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.backButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+}
+
+.backButton:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav span {
+  flex: 1;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  margin-right: 24px; /* 为返回按钮图标留出空间 */
+}
+
+.mainImage {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.authorName {
+  font-weight: 500;
+}
+
+.title {
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.content {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.commentsSection {
+  margin-top: 20px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f7f8fa;
+  border-radius: 5px;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.commentAvatar {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.commentUser {
+  font-size: 14px;
+  color: #333;
+}
+
+.commentText {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}

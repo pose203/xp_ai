@@ -17,20 +17,26 @@ export const useImageStore = create((set, get) => ({
     set({ loading: true });
 
     try {
-      const res = await getImages({ 
-        page, 
+      const res = await getImages({
+        page,
         pageSize: 10,
-        category: currentCategory 
+        category: currentCategory
       });
+      // axios 响应已被拦截器改为 response.data：
+      // - 常见结构：{ code, message, data: { list, hasMore, ... } }
+      // - 也可能直接：{ list, hasMore }
+      const payload = res?.data?.data ?? res?.data ?? res ?? {};
+      const list = Array.isArray(payload.list) ? payload.list : [];
+      const nextHasMore = typeof payload.hasMore === 'boolean' ? payload.hasMore : list.length > 0;
+
       set(state => {
         // 过滤掉可能重复的图片（基于ID）
         const existingIds = new Set(state.images.map(img => img.id));
-        const newImages = res.data.list.filter(img => !existingIds.has(img.id));
-        
+        const deduped = list.filter(img => !existingIds.has(img.id));
         return {
-          images: [...state.images, ...newImages],
+          images: [...state.images, ...deduped],
           page: state.page + 1,
-          hasMore: res.data.hasMore,
+          hasMore: nextHasMore,
         };
       });
     } catch (error) {

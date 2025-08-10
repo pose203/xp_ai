@@ -1,0 +1,323 @@
+.container {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
+
+/* 消息提示样式 */
+.message {
+  margin: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  animation: slideInFadeOut 3s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message.success {
+  background: rgba(255, 255, 255, 0.95);
+  color: #0969da;
+  border: 1px solid #54aeff;
+}
+
+.message.error {
+  background: rgba(255, 255, 255, 0.95);
+  color: #cf222e;
+  border: 1px solid #ff8182;
+}
+
+@keyframes slideInFadeOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  15% { opacity: 1; transform: translateY(0); }
+  85% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* 用户信息区域 */
+.userSection {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 24px 16px;
+  margin-bottom: 12px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+/* 头像容器 */
+.avatarWrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar {
+  cursor: pointer;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 头像加载状态 */
+.avatarLoading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  backdrop-filter: blur(2px);
+}
+
+/* 加载动画 */
+.loadingSpinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.userDetails {
+  flex: 1;
+  margin-left: 16px;
+}
+
+.nickname {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.level {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.signature {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.editProfile {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 16px;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editProfile:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* 统计数据 */
+.statsSection {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.statItem {
+  text-align: center;
+  flex: 1;
+}
+
+.statValue {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 登录界面样式已移至 LoginForm 组件 */
+
+/* 九宫格功能菜单 */
+.gridContainer {
+  padding: 0 16px;
+  margin-bottom: 20px;
+}
+
+.gridMenu {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 80px;
+}
+
+.gridItem:hover {
+  background: #f8f9ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.15);
+}
+
+.gridIcon {
+  font-size: 28px;
+  color: #1976d2;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.gridItem:hover .gridIcon {
+  color: #1565c0;
+}
+
+.gridTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.gridCount {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ff4757;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 8px;
+  min-width: 16px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Loading 覆盖层 */
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.loadingOverlay :global(.rv-loading) {
+  color: white;
+}
+
+.loadingOverlay :global(.rv-loading__text) {
+  color: white;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  /* 用户界面响应式 */
+  .userSection {
+    padding: 20px 12px;
+  }
+  
+  .nickname {
+    font-size: 18px;
+  }
+  
+  .signature {
+    font-size: 13px;
+  }
+  
+  .statsSection {
+    padding: 12px;
+  }
+  
+  .statValue {
+    font-size: 16px;
+  }
+  
+  .gridContainer {
+    padding: 0 12px;
+  }
+  
+  .gridMenu {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .gridItem {
+    padding: 12px 6px;
+    min-height: 70px;
+  }
+  
+  .gridIcon {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  
+  .gridTitle {
+    font-size: 12px;
+  }
+  
+  .gridCount {
+    font-size: 9px;
+    padding: 1px 4px;
+    top: 6px;
+    right: 6px;
+  }
+}

@@ -4,6 +4,8 @@ import MainLayout from '@/components/MainLayout';
 import BlankLayout from '@/components/BlankLayout';
 import { LoadingSpinner } from '@/components';
 import { useUserStore } from '@/store/useUserStore';
+import AuthGuard from '@/components/AuthGuard';
+import LoginForm from '@/pages/Profile/LoginForm';
 import './App.css';
 
 // 懒加载页面组件
@@ -31,16 +33,40 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/discovery" element={<Discovery />} />
-          <Route path="/workshop" element={<Workshop />} />
-          <Route path="/message" element={<Message />} />
-          <Route path="/me" element={<Me />} />
+          <Route path="/discovery" element={
+            <AuthGuard fallback={<LoginForm />}> 
+              <Discovery />
+            </AuthGuard>
+          } />
+          <Route path="/workshop" element={
+            <AuthGuard fallback={<LoginForm />}>
+              <Workshop />
+            </AuthGuard>
+          } />
+          <Route path="/message" element={
+            <AuthGuard fallback={<LoginForm />}>
+              <Message />
+            </AuthGuard>
+          } />
+          <Route path="/me" element={
+            <AuthGuard fallback={<LoginForm />}>
+              <Me />
+            </AuthGuard>
+          } />
         </Route>
 
         {/* 其他页面，不带底部导航栏 */}
         <Route element={<BlankLayout />}>
-          <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/chat/:userId" element={<ChatDetail />} />
+          <Route path="/detail/:id" element={
+            <AuthGuard fallback={<LoginForm />}>
+              <Detail />
+            </AuthGuard>
+          } />
+          <Route path="/chat/:userId" element={
+            <AuthGuard fallback={<LoginForm />}>
+              <ChatDetail />
+            </AuthGuard>
+          } />
         </Route>
       </Routes>
     </Suspense>

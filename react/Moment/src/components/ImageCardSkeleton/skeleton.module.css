@@ -1,0 +1,105 @@
+/* 骨架屏卡片容器 */
+.skeletonCard {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 图片区域骨架 */
+  .skeletonImage {
+    width: 100%;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  /* 内容区域 */
+  .skeletonContent {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  /* 标题骨架 */
+  .skeletonTitle {
+    height: 16px;
+    width: 80%;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  /* 用户信息区域 */
+  .skeletonUser {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* 头像骨架 */
+  .skeletonAvatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    flex-shrink: 0;
+  }
+  
+  /* 用户名骨架 */
+  .skeletonUsername {
+    height: 12px;
+    width: 60px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  /* 统计信息区域 */
+  .skeletonStats {
+    display: flex;
+    gap: 16px;
+  }
+  
+  /* 单个统计项骨架 */
+  .skeletonStat {
+    height: 12px;
+    width: 40px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  /* 闪烁动画 */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  /* 深色模式适配 */
+  @media (prefers-color-scheme: dark) {
+    .skeletonCard {
+      background: #1a1a1a;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    }
+    
+    .skeletonImage,
+    .skeletonTitle,
+    .skeletonAvatar,
+    .skeletonUsername,
+    .skeletonStat {
+      background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+      background-size: 200% 100%;
+    }
+  }

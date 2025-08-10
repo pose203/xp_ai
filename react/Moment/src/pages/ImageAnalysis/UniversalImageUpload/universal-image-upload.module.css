@@ -1,0 +1,248 @@
+/* 通用图片上传组件样式 */
+
+.actionSheet {
+  --rv-action-sheet-max-height: 80vh;
+}
+
+.container {
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 12px 12px 0 0;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* 消息提示样式 */
+.message {
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  text-align: center;
+  animation: slideDown 0.3s ease-out;
+}
+
+.message.success {
+  background-color: #e8f5e8;
+  color: #4caf50;
+  border: 1px solid #c8e6c9;
+}
+
+.message.error {
+  background-color: #ffeaea;
+  color: #f44336;
+  border: 1px solid #ffcdd2;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 区域标题 */
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.sectionIcon {
+  color: #1976d2;
+  font-size: 18px;
+}
+
+.loadingIcon {
+  margin-left: auto;
+  color: #1976d2;
+}
+
+/* 上传区域 */
+.uploadSection {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.uploadArea {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.uploadButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  border: 2px dashed #d0d7de;
+  border-radius: 12px;
+  background: #fafbfc;
+  color: #656d76;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+}
+
+.uploadButton:hover:not(:disabled) {
+  border-color: #1976d2;
+  background: #f0f8ff;
+  color: #1976d2;
+}
+
+.uploadButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.uploadIcon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.uploadTip {
+  font-size: 12px;
+  color: #8b949e;
+  line-height: 1.4;
+}
+
+/* 图片网格 */
+.uploadedGrid,
+.presetGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.imageItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploadedImage,
+.presetImage {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.uploadedImage:hover,
+.presetImage:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  border-color: #1976d2;
+}
+
+.uploadedImage:active,
+.presetImage:active {
+  transform: scale(0.98);
+}
+
+/* 删除按钮 */
+.deleteButton {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ff4757;
+  color: white;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.deleteButton:hover {
+  background: #ff3742;
+  transform: scale(1.1);
+}
+
+.deleteButton:active {
+  transform: scale(0.95);
+}
+
+/* 预设区域 */
+.presetSection {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* 内联模式样式调整 */
+.container.inline {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  max-height: none;
+}
+
+.container.inline .uploadSection,
+.container.inline .presetSection {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* 响应式调整 */
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+  }
+  
+  .uploadedGrid,
+  .presetGrid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 8px;
+  }
+  
+  .uploadButton {
+    height: 70px;
+    font-size: 13px;
+  }
+  
+  .uploadIcon {
+    font-size: 20px;
+  }
+}
+
+/* 加载状态 */
+.uploading .uploadButton {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* 空状态 */
+.emptyState {
+  text-align: center;
+  padding: 20px;
+  color: #8b949e;
+  font-size: 14px;
+}
+
+.emptyStateIcon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}

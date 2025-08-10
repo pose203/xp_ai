@@ -15,6 +15,17 @@ const ChatInterface = ({ userId, userInfo }) => {
 
   // 获取当前登录用户信息
   const { userInfo: currentUser } = useUserStore();
+
+  // 渲染期的容错：确保头像等必需字段存在，避免渲染阶段读取 undefined 报错
+  const safeUserInfo = userInfo || {
+    userName: '用户',
+    avatar:
+      'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop&crop=face',
+  };
+  const safeCurrentUser = currentUser || {
+    avatar:
+      'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop&crop=face',
+  };
   
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState('');
@@ -123,10 +134,13 @@ const ChatInterface = ({ userId, userInfo }) => {
       setTimeout(async () => {
         try {
           const response = await analyzeImageWithSuggestions(base64Image, "请分析这张图片，并给出一些修改或创作建议");
-          
-          if (response.code === 1) {
+          const resp = response || {};
+          // 兼容：服务返回 { code, data } 或直接 { data }
+          const success = resp.code === 1 || (!!resp.data && typeof resp.data === 'object');
+
+          if (success) {
             // 创建AI回复消息，使用流式输出
-            const analysisContent = response.data.content;
+            const analysisContent = resp.data?.content || '图片分析完成，但未返回具体内容。';
     
             const messageId = generateBotMessageId();
             
@@ -147,7 +161,7 @@ const ChatInterface = ({ userId, userInfo }) => {
     
             
           } else {
-            throw new Error(response.message || '图片分析失败');
+            throw new Error(resp.message || '图片分析失败');
           }
         } catch (error) {
           console.error('图片分析失败:', error);
@@ -212,7 +226,7 @@ const ChatInterface = ({ userId, userInfo }) => {
             round
             width="32"
             height="32"
-            src={userInfo.avatar}
+            src={safeUserInfo.avatar}
             className={styles.messageAvatar}
           />
         )}
@@ -260,7 +274,7 @@ const ChatInterface = ({ userId, userInfo }) => {
             round
             width="32"
             height="32"
-            src={currentUser.avatar}
+            src={safeCurrentUser.avatar}
             className={styles.messageAvatar}
           />
         )}

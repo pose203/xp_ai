@@ -1,16 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 
-const useTitle = (title) => {
-  useEffect(() => {
-    if (title) {
-      document.title = `${title} - Moment`;
-    }
-    
-    // 清理函数，重置为默认标题
-    return () => {
-      document.title = 'Moment';
-    };
-  }, [title]);
-};
+/**
+ * 自定义Hook：动态设置页面标题
+ * @param {string} title - 要设置的页面标题
+ */
+function useTitle(title) {
+    useEffect(() => {
+        if (title) {
+            document.title = title
+        }
+    }, [title])
+}
 
-export default useTitle;
+export default useTitle

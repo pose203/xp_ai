@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// 集中化配置
-axios.defaults.baseURL = 'http://localhost:5173/api'
+// 集中化配置：使用相对路径，避免主机/端口不一致导致的跨域或拦截失效
+axios.defaults.baseURL = '/api'
 
 axios.interceptors.request.use((config) => {
   const token = localStorage.getItem('token')

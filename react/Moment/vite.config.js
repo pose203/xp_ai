@@ -41,6 +41,22 @@ export default defineConfig(({ mode }) => {
     port: 5173,
     open: true,
     proxy: {
+      // 代理豆包API请求
+      "/api/doubao": {
+        target: "https://ark.cn-beijing.volces.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/doubao/, "/api/v3/chat/completions"),
+        configure: (proxy) => {
+          proxy.on("proxyReq", (proxyReq) => {
+            const apiKey = env.VITE_DOUBAO_API_KEY;
+            if (apiKey) {
+              proxyReq.setHeader("Authorization", `Bearer ${apiKey}`);
+            } else {
+              console.warn('VITE_DOUBAO_API_KEY 未配置，AI聊天代理将不可用');
+            }
+          });
+        },
+      },
       // 代理火山引擎图像生成API请求
       "/api/volces/images": {
         target: "https://ark.cn-beijing.volces.com",

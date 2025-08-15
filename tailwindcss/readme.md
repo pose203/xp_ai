@@ -17,3 +17,4 @@
     overflow:hidden
 
 pnpm i tailwindcss @tailwindcss/vite
+

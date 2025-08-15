@@ -139,6 +139,132 @@ const _chatWithAIFriend = async (userMessage, friendPersonality = '温暖友善�
 // 导出防抖版本的AI好友聊天函数
 export const chatWithAIFriend = debounce(_chatWithAIFriend, 1000);
 
+
+/**
+ * 豆包可视化模型API调用 - 支持流式输出
+ * @param {Array} messages - 消息历史数组
+ * @param {object} callbacks - 包含 onStream, onClose, onError 的回调对象
+ * @param {string} api_key - API密钥
+ * @param {string} model - 模型名称
+ */
+const streamChatWithDoubao = async (
+    messages,
+    callbacks,
+    api_key = API_CONFIG.AI.DOUBAO_API_KEY,
+    model = DOUBAO_MODEL
+) => {
+    const { onStream, onClose, onError } = callbacks;
+
+    try {
+        const response = await fetch(DOUBAO_API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${api_key}`
+            },
+            body: JSON.stringify({
+                model,
+                messages,
+                stream: true // 启用流式输出
+            })
+        });
+
+        if (!response.ok) {
+            let errorBody = '未知网络错误';
+            try {
+                // 尝试解析JSON格式的错误响应体
+                const errorData = await response.json();
+                errorBody = errorData.error?.message || JSON.stringify(errorData);
+            } catch (e) {
+                // 如果响应体不是JSON，则直接读取文本
+                errorBody = await response.text();
+            }
+            throw new Error(`HTTP 错误！状态码: ${response.status}, 详情: ${errorBody}`);
+        }
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder('utf-8');
+        
+        let buffer = '';
+
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) {
+                if (onClose) onClose();
+                break;
+            }
+            
+            buffer += decoder.decode(value, { stream: true });
+            
+            // 处理服务端事件 (SSE)
+            const lines = buffer.split('\n');
+            buffer = lines.pop(); // 保留不完整的行
+
+            for (const line of lines) {
+                if (line.startsWith('data: ')) {
+                    const jsonStr = line.substring(6);
+                    if (jsonStr.trim() === '[DONE]') {
+                        if (onClose) onClose();
+                        return;
+                    }
+                    try {
+                        const parsed = JSON.parse(jsonStr);
+                        if (parsed.choices && parsed.choices[0].delta.content) {
+                            if (onStream) onStream(parsed.choices[0].delta.content);
+                        }
+                    } catch (e) {
+                        console.error('Failed to parse stream chunk:', e);
+                    }
+                }
+            }
+        }
+    } catch (err) {
+        console.error('豆包 API 流式调用失败:', err);
+        if (onError) onError(err);
+    }
+};
+
+/**
+ * 图片分析功能 - 流式输出版本
+ * @param {string} imageUrl - 图片URL
+ * @param {string} userPrompt - 用户提示
+ * @param {object} callbacks - 回调函数对象
+ */
+export const analyzeImageWithSuggestionsStreaming = (imageUrl, userPrompt, callbacks) => {
+    const systemPrompt = {
+        role: 'system',
+        content: `你是一个专业的图片分析师和创作顾问，名字叫小深。你在一个图片社交APP中帮助用户分析图片并提供创作建议。
+
+请从以下几个方面分析图片：
+1. 画面构图和视觉效果
+2. 色彩搭配和光线
+3. 主题内容和情感表达
+4. 可以优化的地方
+5. 创作灵感和建议
+
+请用温暖、专业、有启发性的语气回复，给出具体而实用的建议，让用户感到有收获。回复要结构清晰，建议要具体可行。`
+    };
+    
+    const userMessage = {
+        role: 'user',
+        content: [
+            {
+                type: 'image_url',
+                image_url: {
+                    url: imageUrl
+                }
+            },
+            {
+                type: 'text',
+                text: userPrompt || "请分析这张图片，并给出一些修改或创作建议"
+            }
+        ]
+    };
+
+    const messages = [systemPrompt, userMessage];
+    streamChatWithDoubao(messages, callbacks);
+};
+
 /**
  * 批量图片分析 - 分析多张图片（带防抖保护）
  * @param {Array} imageUrls - 图片URL数组

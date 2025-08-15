@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Image as RVImage, Button, Field, Loading, Toast } from 'react-vant';
 import { PhotoO } from '@react-vant/icons';
 import { getChatMessages, sendMessage } from '../../../../mock/chatData.js';
-import { analyzeImageWithSuggestions } from '@/services/doubaoAPI';
+import { analyzeImageWithSuggestions, analyzeImageWithSuggestionsStreaming } from '@/services/doubaoAPI';
 import { useUserStore } from '@/store/useUserStore';
 import { useDebounceCallback } from '@/utils/debounce';
 import useTitle from '@/hooks/useTitle';
@@ -129,52 +129,61 @@ const ChatInterface = ({ userId, userInfo }) => {
       
       // 显示AI正在分析的状态
       setAiTyping(true);
-      
-      // 调用豆包API分析图片（使用base64格式）
-      setTimeout(async () => {
-        try {
-          const response = await analyzeImageWithSuggestions(base64Image, "请分析这张图片，并给出一些修改或创作建议");
-          const resp = response || {};
-          // 兼容：服务返回 { code, data } 或直接 { data }
-          const success = resp.code === 1 || (!!resp.data && typeof resp.data === 'object');
 
-          if (success) {
-            // 创建AI回复消息，使用流式输出
-            const analysisContent = resp.data?.content || '图片分析完成，但未返回具体内容。';
-    
-            const messageId = generateBotMessageId();
-            
-            // 先添加空的消息容器
-            const analysisMessage = {
-              id: messageId,
-              type: 'ai_analysis',
-              content: analysisContent, // 直接设置内容
-              originalImage: base64Image,
-              timestamp: new Date().toISOString(),
-              isSelf: false,
-              status: 'read'
-            };
-            
-            addMessageSafely(analysisMessage);
-            setAiTyping(false); // 停止"正在分析"状态
-            
-    
-            
-          } else {
-            throw new Error(resp.message || '图片分析失败');
+      // 调用新的流式API
+      const messageId = generateBotMessageId();
+      const analysisMessage = {
+          id: messageId,
+          type: 'ai_analysis',
+          content: '', // 初始内容为空
+          originalImage: base64Image,
+          timestamp: new Date().toISOString(),
+          isSelf: false,
+          status: 'read'
+      };
+
+      addMessageSafely(analysisMessage);
+
+      analyzeImageWithSuggestionsStreaming(
+          base64Image, 
+          "请分析这张图片，并给出一些修改或创作建议", 
+          {
+              onStream: (chunk) => {
+                  const cleanedChunk = chunk.replace(/###/g, ''); // 移除 "###"
+                  setMessages(prev =>
+                      prev.map(msg =>
+                          msg.id === messageId
+                              ? { ...msg, content: msg.content + cleanedChunk }
+                              : msg
+                      )
+                  );
+              },
+              onClose: () => {
+                  setAiTyping(false);
+                  setUploading(false);
+              },
+              onError: (err) => {
+                  console.error('图片分析失败:', err);
+                  setAiTyping(false);
+                  setUploading(false);
+                  Toast.fail('AI响应失败');
+
+                  // 在消息气泡中显示固定的、更清晰的错误提示
+                  const errorMessage = 'AI响应失败。\n请检查 .env.local 文件中的 VITE_DOUBAO_API_KEY 是否正确配置，然后重启服务。';
+                  setMessages(prev =>
+                      prev.map(msg =>
+                          msg.id === messageId
+                              ? { ...msg, content: errorMessage }
+                              : msg
+                      )
+                  );
+              }
           }
-        } catch (error) {
-          console.error('图片分析失败:', error);
-          setAiTyping(false);
-          Toast.fail('图片分析失败，请稍后重试');
-        }
-      }, 1500); // 1.5秒延迟，模拟分析时间
-      
+      );
     } catch (error) {
       console.error('图片上传失败:', error);
       Toast.fail('图片上传失败，请重试');
-    } finally {
-      setUploading(false);
+      setUploading(false); // 确保在初始错误时也重置
     }
   };
 
@@ -244,7 +253,7 @@ const ChatInterface = ({ userId, userInfo }) => {
                 <span className={styles.aiTag}>🤖 AI图片分析</span>
               </div>
               <div className={styles.aiAnalysisContent} style={{ whiteSpace: 'pre-line' }}>
-                {message.content || '内容加载失败'}
+                {message.content || '内容加载中...'}
               </div>
             </div>
           ) : message.type === 'image' ? (

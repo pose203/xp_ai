@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './tabbar.module.css';
-
+// 标签栏组件,纯展示 + 事件组件；路由高亮需父层配合
 const TabBar = ({ tabs, activeTab, onTabChange, className = '' }) => {
   return (
     <div className={`${styles.tabBar} ${className}`}>
       <div className={styles.tabList}>
+
         {tabs.map((tab) => (
           <div
             key={tab.key}

@@ -154,6 +154,7 @@
   background: transparent;
   padding: 8px 16px;
   border-radius: 20px;
+  font-size: 14px !important; /* 强制设置字体大小 */
 }
 
 .sendButton {

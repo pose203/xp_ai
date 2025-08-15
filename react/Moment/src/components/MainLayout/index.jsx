@@ -16,7 +16,7 @@ const MainLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [active, setActive] = useState('home');
-
+  // 监听路由变化，更新当前激活的标签
   useEffect(() => {
     const currentTab = tabs.find(tab => location.pathname.startsWith(tab.path));
     if (currentTab) {
@@ -24,6 +24,7 @@ const MainLayout = () => {
     }
   }, [location.pathname]);
 
+  // 处理标签切换事件，更新当前激活的标签并导航到对应的路由
   const handleTabChange = (key) => {
     setActive(key);
     const tab = tabs.find(t => t.key === key);

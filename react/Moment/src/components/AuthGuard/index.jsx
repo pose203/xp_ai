@@ -3,8 +3,8 @@ import { useUserStore } from '../../store/useUserStore';
 import LoadingSpinner from '../LoadingSpinner';
 
 /**
- * 认证守卫组件
- * 用于保护需要登录的路由
+ * 路由守卫组件
+ * 用于保护需要登录的路由，如果未登录，则跳转到登录页
  */
 const AuthGuard = ({ children, fallback = null }) => {
   const { isLoggedIn, token, loading, initAuth, fetchUserInfo } = useUserStore();

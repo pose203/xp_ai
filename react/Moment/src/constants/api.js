@@ -18,7 +18,7 @@ export const API_CONFIG = {
   AI: {
     // 豆包可视化模型API（用于AI好友聊天和图片分析）
     DOUBAO_API_KEY: import.meta.env.VITE_DOUBAO_API_KEY,
-    DOUBAO_BASE_URL: 'https://ark.cn-beijing.volces.com/api/v3/chat/completions',
+    DOUBAO_BASE_URL: '/api/doubao', // 使用代理路径
     DOUBAO_VISION_MODEL: 'ep-20250807102216-l5dmq', // 豆包可视化模型
     // 火山引擎图像生成API配置（用于头像生成）
           VOLCES_API_KEY: import.meta.env.VITE_ARK_API_KEY,

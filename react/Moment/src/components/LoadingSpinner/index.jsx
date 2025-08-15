@@ -1,5 +1,5 @@
 import styles from './loading-spinner.module.css';
-
+// 用 CSS Modules 渲染三段跳的圆点动画，并可附带提示文案
 const LoadingSpinner = ({ size = 'medium', color = 'primary', text = '加载中...' }) => {
   return (
     <div className={`${styles.container} ${styles[size]}`}>

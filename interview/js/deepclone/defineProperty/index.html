@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式</title>
+</head>
+<body>
+<div id="container">1</div>
+<button id="button">点击加1</button>
+<button id="loginBtn">点击登录</button>
+<script>
+//js dom api
+// document.getElementById('button').addEventListener('click',function(){
+//     var container = document.getElementById('container')
+//     container.innerHTML = Number(container.innerHTML);
+//     // 显示类型换
+//     container.innerHTL = Number(container.innerHTML) + 1;
+
+// });
+
+ 
+//响应式开发 数据状态 它发生改变，数据绑定的地方会自动更新
+//mvvm  Model count View #container Vm jsx
+// 1 状态
+// 
+var obj = {
+    // 监听这个状态的改变
+    value:1// 数据 响应式? 状态呢?
+}
+let value = 1
+let isLogin = false
+
+Object.defineProperty(obj,'value',{
+    // 定义obj 上的value属性，有些什么样的操作
+    get:function (){
+        console.log('get value')
+        return value
+    },
+    set:function (newValue){
+       
+        value = newValue
+        document.getElementById('container').innerHTML = newValue
+    }
+})
+
+Object.defineProperty(obj,"isLogin",{
+    get:function (){
+       isLogin = newValue
+       document.getElementById('loginBtn').innerText = '登出'
+    }
+})
+document.getElementById('button').addEventListener('click',function(){
+    obj.value++
+})
+</script>
+</body>
+</html>

@@ -7,6 +7,9 @@
     - 单行文本垂直居中 line-height = height padding，
     - 固定宽高级盒子水平垂直居中 absolur+margin 负值
          缺点需要知道盒子的宽高
-    - 
-    - transform 相对自身大小的百分比
-       
+         absolute + margin auto(重要)
+         adsolute + calc (css calc 计算函数) 缺点是性能很差，很好用
+    - 不固定宽高块级盒子水平垂直居中 
+       absolute + transform
+       line-height + vertical-align
+       方法三:writing-mode

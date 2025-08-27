@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="btn">按钮</div>
+<script>
+function registerHandler(){
+    const bigDate = new Array(1000000).fill('*')
+
+    function handler(){
+        console.log(bigData.length)
+    }
+
+    const btn = document.getElementById('btn')
+    btn.addEventListener('click', handler)
+
+    setTimeout(() => {
+        btn.removeEventListener('click', handler)
+    }, 1000)
+}
+registerHandler()
+// 手动断开引用
+function registerHandler(){
+    let bigData = new Array(1000000).fill('*')
+    document.getElementById('btn').addEventListener('click', () => {
+        console.log(bigData.length)
+        bigData = null;//手动触发垃圾回收
+    })
+   
+}
+</script>
+</body>
+</html

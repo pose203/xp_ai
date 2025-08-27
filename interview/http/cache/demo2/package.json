@@ -1,0 +1,21 @@
+{
+  "name": "http-cache-demo",
+  "version": "1.0.0",
+  "description": "HTTP缓存机制演示项目",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": ["http", "cache", "demo", "node"],
+  "author": "Cache Demo",
+  "license": "MIT",
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/http-cache-demo.git"
+  }
+}

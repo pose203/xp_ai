@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/tabbar",
+    "pages/index/images",
+    "pages/index/video",
+    "pages/tool/tool",
+    "pages/mine/about",
+    "pages/mine/mine",
+    "pages/mine/problem",
+    "pages/mine/instructions",
+    "pages/mine/customer",
+    "pages/mine/canvas",
+    "pages/tool/md5",
+    "pages/tool/batch",
+    "pages/mine/goods",
+    "pages/index/web",
+    "pages/mine/before",
+    "pages/task/task",
+    "pages/task/invite"
+  ],
+  "subPackages": [
+    {
+      "root": "page_add",
+      "pages": [
+        "index/index",
+        "full-mark/full-mark",
+        "invisible-mark/invisible-mark",
+        "banner-mark/banner-mark",
+        "nickname-mark/nickname-mark"
+      ]
+    },
+    {
+      "root": "page_vip",
+      "pages": [
+        "index/index"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "去水印",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "navigationStyle": "custom"
+  },
+  "networkTimeout": {
+    "request": 60000,
+    "uploadFile": 60000,
+    "downloadFile": 300000
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

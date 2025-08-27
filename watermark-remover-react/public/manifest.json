@@ -1,0 +1,16 @@
+{
+  "short_name": "去水印神器",
+  "name": "去水印神器 - React版本",
+  "description": "支持抖音、快手、小红书等平台视频图片去水印",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

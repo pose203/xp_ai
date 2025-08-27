@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar",
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "interstitial": "/components/interstitial/interstitial"
+  }
+}

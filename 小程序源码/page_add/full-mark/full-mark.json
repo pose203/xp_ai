@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "choose-image": "/page_add/components/choose-image/choose-image"
+  }
+}

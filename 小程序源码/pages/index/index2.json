@@ -1,0 +1,12 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index2-u-waterfall-left": "/pages/index/index2-u-waterfall-left",
+    "index2-u-waterfall-right": "/pages/index/index2-u-waterfall-right",
+    "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar",
+    "u-waterfall": "/uview-ui/components/u-waterfall/u-waterfall",
+    "u-lazy-load": "/uview-ui/components/u-lazy-load/u-lazy-load",
+    "interstitial": "/components/interstitial/interstitial",
+    "add-tip": "/components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip"
+  }
+}

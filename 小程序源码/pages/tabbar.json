@@ -1,0 +1,11 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "home0": "/pages/index/index",
+    "home1": "/pages/index/index2",
+    "home2": "/pages/index/index3",
+    "tool": "/pages/tool/tool",
+    "task": "/pages/task/task",
+    "mine": "/pages/mine/mine"
+  }
+}

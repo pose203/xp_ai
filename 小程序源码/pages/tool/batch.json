@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "batch-u-waterfall-left": "/pages/tool/batch-u-waterfall-left",
+    "batch-u-waterfall-right": "/pages/tool/batch-u-waterfall-right",
+    "u-waterfall": "/uview-ui/components/u-waterfall/u-waterfall",
+    "u-lazy-load": "/uview-ui/components/u-lazy-load/u-lazy-load",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
+    "interstitial": "/components/interstitial/interstitial"
+  }
+}

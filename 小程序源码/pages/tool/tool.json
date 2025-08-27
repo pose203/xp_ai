@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "工具",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "interstitial": "/components/interstitial/interstitial"
+  }
+}

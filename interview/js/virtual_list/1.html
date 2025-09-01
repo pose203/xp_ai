@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+       let now = Date.now();
+       const total = 100000;
+       let ul = document.getElementById('container');
+       for(let i = 0; i < total; i++) {
+        let li = document.createElement('li');
+        li.innerHTML = `item${i}`;
+        ul.appendChild(li);
+       }
+       // JS同步 -> 微任务队列 ->页面渲染 ->宏任务队列
+       console.log(Date.now() - now);
+       setTimeout(()=>   {
+        console.log(Date.now() - now);
+       },0)
+    </script>
+</body>
+</html>

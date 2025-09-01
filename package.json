@@ -13,8 +13,10 @@
 	"dependencies": {
 		"@react-vant/icons": "^0.1.0",
 		"axios": "^1.10.0",
+		"dotenv": "^17.2.1",
 		"express": "^5.1.0",
 		"lib-flexible": "^0.3.2",
+		"openai": "^5.16.0",
 		"postcss-pxtorem": "^6.1.0",
 		"react-dom": "^19.1.0",
 		"react-router-dom": "^7.7.0",

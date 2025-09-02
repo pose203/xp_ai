@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import prisma from '@/lib/db';
 import bcrypt from 'bcryptjs';
-const emailRegex = /^.+@.+\..+$/;//RegExp
-const passwordRegex = /^(?!^\d+$)^[a-zA-Z0-9!@#$%^&*]{6,18}$/
+import { emailRegex, passwordRegex } from '@/lib/regexp';
 // resutful
 // 匹配规则，符号数学
 // .什么都匹配，匹配一个
@@ -50,6 +49,8 @@ export async function POST(request: NextRequest) {
     } catch (error) {
         console.error(error);
         return NextResponse.json({ error: '注册失败' }, { status: 500 });
+    } finally {
+        await prisma.$disconnect();
     }
 }
 

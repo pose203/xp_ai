@@ -11,7 +11,17 @@
     mcp
 - ai 搜索
 
+## 双token
 
+单token localStorage 长期，第三方拦截不安全
+安全 + 无感刷新登录
+双token
+- accessToken 校验身份 重要 时间有效期变短 h小时单位 cookie
+  容易过期
+- refreshToken 刷新 7d 时间长
+  没有过期，refreshToken 发送服务器/api/auth/refresh
+  返回新的accessToken 无感刷新
+- refreshToken 过期后，去登录
 ## 开发流程
 - .env
     mysql url
@@ -65,3 +75,41 @@
   - 400 bad request
   - 409 conflict
   - 500 internal server error
+
+- middleware 的概念
+  中间件 配置一个列表
+  /dashboard
+  Middleware 是中间件，用于在请求和响应之间执行预处理逻辑，如日志、认证、数据解析等。
+  - 配置一个需要登录的页面数组
+  - some startWith
+  - response.next() 放行
+  - response.redirect() 跳转
+  
+- JWT 的构成
+  - 头部
+     签名算法 hs256
+  - 载荷
+     {userId:..}
+  - 签名
+     secretkey
+
+- cookie
+  httpOnly: true,// 不能用javascript 操作cookie
+  HttpOnly 可防止 JavaScript 访问 Cookie，有效抵御 XSS 攻击导致的令牌泄露。
+  服务器端设置
+  SameSite 可防止跨站请求伪造（CSRF）攻击，限制 Cookie 在跨域请求中的自动发送，提升安全性。
+- 后端安全和性能
+  - 一定要做容错处理
+    try{}catch{}finally{}
+  - 释放数据库对象
+- prisma client 的CRUD
+  prisma.user.create()
+  prisma.user.findUnique()
+  prisma.user.update({
+    where: {
+      id: user.id
+    },
+    data: {
+      refreshToken
+    }
+  })

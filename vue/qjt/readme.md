@@ -13,6 +13,15 @@ React -> vue MVVM 响应式(ref/reactive useState) 组件通信
 - 计算属性
 - 响应式
 
+## Store 状态管理
+
+- Pinia
+  homeStore
+- defineStore 定义状态管理、
+  - 第一个参数 状态管理的名称
+  - 第二个参数 配置项
+- 调用 useHomeStore
+- toRefs 把状态管理的状态转换为响应式的
 
 ## vite
 - alias
@@ -21,6 +30,8 @@ React -> vue MVVM 响应式(ref/reactive useState) 组件通信
   unplugin-vue-components/vite
   @vant/auto-import-resolver
 
+## slot 插槽
+ 提升组件的定制性 #action 具名插槽
 
 
 ## typescript
@@ -28,5 +39,11 @@ React -> vue MVVM 响应式(ref/reactive useState) 组件通信
   - 路由 path 和 component 是必填项
   - name 属性 选填
   - 
-
+## tailwindcss 
+  - 原子css 
+  - w-[calc(100vw-2rem)] 计算宽度
+  - 自适应
+  
 ## VUE 与 React 区别
+- react 单向绑定 绑定值 + 事件
+- vue 双向绑定 v-model 指令

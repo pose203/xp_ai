@@ -1,7 +1,7 @@
 import OpenAI from 'openai'; // es6 module
 
 const client = new OpenAI({
-    apiKey: 'sk-h91KBBHUC30pbiviNhD9I5YnyC7gcdd4CzPCKJcMhnkm7IT9',
+    apiKey: '',
     baseURL: 'https://api.302.ai/v1'
 })
 

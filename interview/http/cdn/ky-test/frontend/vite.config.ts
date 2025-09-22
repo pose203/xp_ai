@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   server: {
+    // 正向代理
     proxy: {
       // 代理所有以/api开头的请求
       // vite 后端，不跨越

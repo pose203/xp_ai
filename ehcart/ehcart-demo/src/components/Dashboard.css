@@ -1,0 +1,150 @@
+/* Dashboard Main Container */
+.dashboard {
+  min-height: 100vh;
+  background: #f0f0f0;
+  padding: 60px 40px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-container {
+  max-width: 900px;
+  width: 100%;
+  background: white;
+  border-radius: 32px;
+  padding: 50px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Top Section Layout */
+.dashboard-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  gap: 60px;
+}
+
+.dashboard-left {
+  flex: 0 0 auto;
+}
+
+.dashboard-right {
+  flex: 1;
+}
+
+/* Bottom Section */
+.dashboard-bottom {
+  width: 100%;
+}
+
+/* Circular Progress Styles */
+.circular-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.progress-value {
+  font-size: 72px;
+  font-weight: 300;
+  color: #2196F3;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.progress-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2196F3;
+  margin-bottom: 4px;
+}
+
+.progress-subtitle {
+  font-size: 16px;
+  color: #2196F3;
+  font-weight: 600;
+}
+
+/* Score Bars Styles */
+.score-bars {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  gap: 30px;
+  padding: 20px 0;
+  height: 200px;
+}
+
+.score-bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.score-bar {
+  transition: all 0.3s ease;
+}
+
+.score-value {
+  font-size: 32px;
+  font-weight: 300;
+  margin-top: 12px;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+/* Energy Curve Styles */
+.energy-curve {
+  width: 100%;
+  background: white;
+  border-radius: 0;
+  padding: 0;
+  margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 20px 10px;
+  }
+  
+  .dashboard-container {
+    padding: 20px;
+  }
+  
+  .dashboard-top {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .score-bars {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .score-value {
+    font-size: 24px;
+  }
+}
